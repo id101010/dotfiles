@@ -1,0 +1,25 @@
+"vimrc - VIM Configuration file"
+
+"Autointend"
+:set cindent
+
+"Tabstop, Shiftwith and replace tabs with spaces" 
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+
+"Stuff needed by urxvt"
+:set nocompatible
+:set mouse=a
+:set backspace=2
+
+"Syntaxhighlighting, colorscheme, linenumbers"
+:syntax on
+:colorscheme calmar256-dark
+:set number
+:set list
+:set nowrap
+:set hlsearch
+
+"Automaticly reread a file, if file has changed"
+set autoread
