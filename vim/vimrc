@@ -1,12 +1,14 @@
 "vimrc - VIM Configuration file"
 
-"Autointend"
+"Autointend and autoscroll 3 lines above the cursor"
 :set cindent
+:set scrolloff=3
 
-"Tabstop, Shiftwith and replace tabs with spaces" 
+"Tabstop, Shiftwith and replace tabs with spaces but not in makefiles 
 :set tabstop=4
 :set shiftwidth=4
 :set expandtab
+:autocmd FileType make set noexpandtab
 
 "Stuff needed by urxvt"
 :set nocompatible
@@ -15,7 +17,9 @@
 
 "Syntaxhighlighting, colorscheme, linenumbers"
 :syntax on
-:colorscheme calmar256-dark
+:set background=dark
+:colorscheme lettuce
+:set t_Co=256
 :set number
 :set list
 :set nowrap

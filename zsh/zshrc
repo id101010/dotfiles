@@ -98,7 +98,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias diff='colordiff'
 alias ports='netstat -tulanp'
-alias penis="cowsay -f head-in ahh ja so lässig"
+alias cal='cal -m'
 
 setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
