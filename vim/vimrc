@@ -82,5 +82,5 @@ set hlsearch
 set laststatus=2
 set t_Co=256
 
-" Automaticly reread a file, if file has changed "
+"Automaticly reread a file, if file has changed"
 set autoread
