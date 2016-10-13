@@ -1,0 +1,38 @@
+# Real transparency         -> needs composite manager
+URxvt.depth:                32
+URxvt.background:           rgba:0000/0000/0200/cfff
+
+# Fake transparency
+#URxvt.transparent:          true
+#URxvt.shading:              30
+
+URxvt.tintColor:            White
+URxvt.saveLines:            9000000
+URxvt.foreground:           Grey
+
+# Fonts                     For Powerlinefonts: https://github.com/powerline/fonts
+#URxvt.font:                 xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+#URxvt.boldFont:             xft:DejaVu Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+#URxvt.tabbed.font:          xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+#URxvt.font:                 xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
+#URxvt.boldFont:             xft:Droid Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+#URxvt.tabbed.font:          xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
+URxvt.font:                 xft:Roboto Mono for Powerline:pixelsize=15:antialias=true:hinting=false
+URxvt.boldFont:             xft:RobotoMono for Powerline :bold:pixelsize=14:antialias=true:hinting=true
+URxvt.tabbed.font:          xft:RobotoMono for Powerline :pixelsize=14:antialias=true:hinting=true
+
+# Misc
+URxvt.scrollBar:            false
+URxvt.perl-ext-common:      default, matcher, vtwheel
+URxvt.secondaryScroll:      true
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          /usr/bin/firefox
+URxvt.colorUL:              #4682B4
+URxvt.tabbed.saveLines:     1000
+URxvt.tabbed.scrollBar:     false
+URxvt.tabbed.tabbar-fg:     3
+URxvt.tabbed.tabbar-bg:     0
+URxvt.tabbed.tab-fg:        0
+URxvt.tabbed.tab-bg:        1
+URxvt.tabbed.secondaryScroll:   true
+URxvt*inheritPixmap:            true 

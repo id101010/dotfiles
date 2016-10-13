@@ -1,4 +1,5 @@
 " vimrc - VIM Configuration file "
+" Needs: https://github.com/powerline/fonts "
 
 set nocompatible
 filetype off
@@ -46,6 +47,16 @@ endif
 
 filetype plugin indent on
 
+" Lightline configuration "
+let g:lightline = {
+      \ 'colorscheme': 'default',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': ''  },
+      \ 'subseparator': { 'left': '', 'right': ''  }
+      \ }
+
 " Autointend and autoscroll 4 lines above the cursor "
 set cindent
 set scrolloff=4
@@ -79,8 +90,10 @@ set number
 set list
 set nowrap
 set hlsearch
-set laststatus=2
 set t_Co=256
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline )   "
 
 "Automaticly reread a file, if file has changed"
 set autoread
