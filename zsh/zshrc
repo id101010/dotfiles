@@ -8,6 +8,11 @@
 #                              #
 ################################
 
+# Autoload stuff
+autoload -U compinit promptinit
+compinit
+promptinit
+
 # History
 export HISTSIZE=100000
 export HISTFILE="$HOME/.history"
@@ -113,8 +118,5 @@ setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
 setopt pushdminus
 setopt nohashdirs
-autoload -U compinit promptinit
-compinit
-promptinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 rehash
