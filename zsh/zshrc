@@ -1,6 +1,12 @@
-autoload -U compinit promptinit
-compinit
-promptinit
+################################
+#            _                 #
+#           | |                #
+#    _______| |__  _ __ ___    #
+#   |_  / __| '_ \| '__/ __|   #
+#    / /\__ \ | | | | | (__    #
+#   /___|___/_| |_|_|  \___|   #
+#                              #
+################################
 
 # History
 export HISTSIZE=100000
@@ -53,6 +59,7 @@ key[PageDown]=${terminfo[knp]}
 [[ -n ${key[Right]}      ]]  && bindkey  "${key[Right]}"        forward-char
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"       history-beginning-search-backward
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"     history-beginning-search-forward
+
 bindkey "[C" forward-word
 bindkey "[D" backward-word
 
@@ -72,6 +79,7 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
   [[ -d $dirstack[1] ]] && cd $dirstack[1]
 fi
+
 chpwd() {
   print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
@@ -104,6 +112,9 @@ alias cal='cal -m'
 setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
 setopt pushdminus
+setopt nohashdirs
+autoload -U compinit promptinit
+compinit
+promptinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 rehash
-setopt nohashdirs

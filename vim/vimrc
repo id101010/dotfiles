@@ -1,9 +1,24 @@
-" vimrc - VIM Configuration file "
-" Needs: https://github.com/powerline/fonts "
+"""""""""""""""""""""""""""""""""""""
+" __      _______ __  __            "
+" \ \    / /_   _|  \/  |           "
+"  \ \  / /  | | | \  / |_ __ ___   "
+"   \ \/ /   | | | |\/| | '__/ __|  "
+"    \  /   _| |_| |  | | | | (__   "
+"     \/   |_____|_|  |_|_|  \___|  "
+"                                   "
+"""""""""""""""""""""""""""""""""""""
+" Install powerline fonts and configure your 
+" terminal emulator to use them.
+" -> https://github.com/powerline/fonts "
+" -> Arch linux AUR: powerline-fonts-git
+"
 
 set nocompatible
 filetype off
 
+""""""""""""""""""""""""""""""""""""""
+"  Vundle (vim plugin manager) stuff "
+""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " Automatically setting up vundle "
@@ -47,7 +62,10 @@ endif
 
 filetype plugin indent on
 
-" Lightline configuration "
+"""""""""""""""""""""""""""""""""""""""""
+"  Lightline (statusline) configuration "
+"""""""""""""""""""""""""""""""""""""""""
+
 let g:lightline = {
       \ 'colorscheme': 'default',
       \ 'component': {
@@ -56,6 +74,10 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': ''  },
       \ 'subseparator': { 'left': '', 'right': ''  }
       \ }
+
+"""""""""""""""""""""""""""""""""""""""""
+"          Misc configurations          "
+"""""""""""""""""""""""""""""""""""""""""
 
 " Autointend and autoscroll 4 lines above the cursor "
 set cindent
@@ -79,21 +101,21 @@ set backspace=2
 
 " Syntaxhighlighting, colorscheme, linenumbers "
 syntax on
-colorscheme jellybeans                  " Colorscheme from plugin "
+colorscheme jellybeans  " Colorscheme from plugin 
 set cursorline
-set more                                " Use more "
-set title
-set vb t_vb=                            " No beeping and flashing "
+set more                " Use more 
+set title               " Blank title
+set vb t_vb=            " No beeping and flashing "
 set wildmenu
 set background=dark
-set number
-set list
+set number              " Linenumbers
+set list                
 set nowrap
 set hlsearch
 set t_Co=256
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline )   "
+set laststatus=2        " Always display the statusline in all windows
+set showtabline=2       " Always display the tabline, even if there is only one tab
+set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 "Automaticly reread a file, if file has changed"
 set autoread
