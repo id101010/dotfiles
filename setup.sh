@@ -10,13 +10,7 @@ git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
 
 # setup i3
 if [ ! -e "$HOME/.i3" ]; then
-    cp -r $DOTFILES/i3wm/Authenticator      $HOME/.i3/
-    cp -r $DOTFILES/i3wm/i3blur.py          $HOME/.i3/
-    cp -r $DOTFILES/i3wm/i3dmenu-wrapper.sh $HOME/.i3/
-    cp -r $DOTFILES/i3wm/i3status.conf      $HOME/.i3/
-    cp -r $DOTFILES/i3wm/volnotid.sh        $HOME/.i3/
-    
-    ln -s $DOTFILES/i3wm/config $HOME/.i3/config
+    ln -s $DOTFILES/i3wm/ $HOME/.i3/
 fi
 
 # setup tmux

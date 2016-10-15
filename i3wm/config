@@ -38,9 +38,9 @@ focus_follows_mouse yes
 # 
 
 # Sound softkeys management
-bindsym Print                   exec ~/.i3/volnotid.sh down
-bindsym Scroll_Lock             exec ~/.i3/volnotid.sh up
-bindsym Pause                   exec ~/.i3/volnotid.sh mute
+bindsym Print                   exec ~/.i3/util/volnotid.sh down
+bindsym Scroll_Lock             exec ~/.i3/util/volnotid.sh up
+bindsym Pause                   exec ~/.i3/util/volnotid.sh mute
 
 # Display brightness management
 bindsym XF86MonBrightnessUp     exec "xbacklight +10"
@@ -50,15 +50,15 @@ bindsym XF86MonBrightnessDown   exec "xbacklight -10"
 bindsym XF86Launch1             exec  urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F1                 exec ~/.i3/Authenticator.sh google
-bindsym $mod+F2                 exec ~/.i3/Authenticator.sh facebook
-bindsym $mod+F3                 exec ~/.i3/Authenticator.sh dropbox
+bindsym $mod+F1                 exec ~/.i3/util/Authenticator.sh google
+bindsym $mod+F2                 exec ~/.i3/util/Authenticator.sh facebook
+bindsym $mod+F3                 exec ~/.i3/util/Authenticator.sh dropbox
 
 # start dmenu-launcher
-bindsym $mod+d                  exec ~/.i3/i3dmenu-wrapper.sh
+bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
 
 # lock i3 with i3lock
-bindsym $mod+Shift+x            exec ~/.i3/i3blur.py && systemctl suspend
+bindsym $mod+Shift+x            exec ~/.i3/util/i3blur.py && systemctl suspend
 
 #############################################
 #                  Keymaps                  #
