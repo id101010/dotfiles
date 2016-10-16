@@ -62,3 +62,6 @@ ln -sfv $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 # ------------------------------------------------ Setup urxvt
 ln -sfv $DOTFILES/urxvt/Xdefaults $HOME/.Xdefaults
+
+# ------------------------------------------------ Setup wallpapers
+ln -sfv $DOTFILES/wallpapers/ $HOME/.wallpapers
