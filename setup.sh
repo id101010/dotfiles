@@ -1,32 +1,64 @@
 #!/bin/bash
 
-DOTFILES="/home/$USER/.dotfiles"
+#############################################################
+#   _____      _                               _       _    #
+#  / ____|    | |                             (_)     | |   #
+# | (___   ___| |_ _   _ _ __    ___  ___ _ __ _ _ __ | |_  #
+#  \___ \ / _ \ __| | | | '_ \  / __|/ __| '__| | '_ \| __| #
+#  ____) |  __/ |_| |_| | |_) | \__ \ (__| |  | | |_) | |_  #
+# |_____/ \___|\__|\__,_| .__/  |___/\___|_|  |_| .__/ \__| #
+#                       | |                     | |         #
+#                       |_|                     |_|         #
+#############################################################
 
-# Clone the repository and setup powerline fonts
-git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
+# Files and folders
+DOTFILES="$HOME/.dotfiles"
+
+BAKFILES=".zshrc
+          .tmux.conf
+          .vimrc
+          .Xdefaults"
+
+BAKFOLD="$HOME/.dotfilebackup"
+
+# Clean environment
+if [ "$1" == "clean" ]; then
+    echo "[*] Backing up dotfiles to $BAKFOLD"
+
+    # Create backup folder if it doesn't exist
+    if [ ! -d $BAKFOLD ]; then
+        mkdir $BAKFOLD
+    fi
+
+    # Backup each config file specified by $BAKFILES
+    for file in $BAKFILES
+    do
+        cp -v $HOME/$file $BAKFOLD/$file
+        rm -rf $HOME/$file
+    done
+
+    exit
+fi
+
+# Clone the repository if it doesn't exist 
+if [ ! -e "$HOME/.dotfiles/"  ]; then
+    git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
+fi
 
 # Uncomment to install powerlinefonts from the arch linux user repository
 #yaourt -S powerline-fonts-git
 
-# setup i3
-if [ ! -e "$HOME/.i3" ]; then
-    ln -s $DOTFILES/i3wm/ $HOME/.i3/
-fi
+# ------------------------------------------------ Setup I3wm
+ln -sfv $DOTFILES/i3wm/ $HOME/.i3
 
-# setup tmux
-if [ ! -e "$HOME/.tmux.conf" ]; then
-    ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
-fi
+# ------------------------------------------------ Setup tmux
+ln -sfv $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
-# setup vim
-if [ ! -e "$HOME/.vimrc" ]; then
-    ln -s $DOTFILES/vim/vimrc $HOME/.vimrc
-fi
+# ------------------------------------------------ Setup vim
+ln -sfv $DOTFILES/vim/vimrc $HOME/.vimrc
 
-# setup zsh
-if [ ! -e "$HOME/.zshrc" ]; then
-    ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
-fi
+# ------------------------------------------------ Setup zsh
+ln -sfv $DOTFILES/zsh/zshrc $HOME/.zshrc
 
-# setup urxvt
-ln -s $DOTFILES/urxvt/Xdefaults $HOME/.Xdefaults
+# ------------------------------------------------ Setup urxvt
+ln -sfv $DOTFILES/urxvt/Xdefaults $HOME/.Xdefaults

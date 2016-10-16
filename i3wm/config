@@ -13,7 +13,7 @@
 #############################################
 
 # font
-set $font "pango:RobotoMono 12"
+set $font "pango:RobotoMono 10"
 font $font
 
 # floating modifier
@@ -37,22 +37,25 @@ focus_follows_mouse yes
 # "xev" and "showkeys" can be usefull to determine the keycodes.
 # 
 
-# Sound softkeys management
-bindsym Print                   exec ~/.i3/util/volnotid.sh down
-bindsym Scroll_Lock             exec ~/.i3/util/volnotid.sh up
-bindsym Pause                   exec ~/.i3/util/volnotid.sh mute
+# sound softkeys management
+bindsym XF86AudioRaiseVolume    exec ~/.i3/util/volnotid.sh up
+bindsym XF86AudioLowerVolume    exec ~/.i3/util/volnotid.sh down
+bindsym XF86AudioMute           exec ~/.i3/util/volnotid.sh mute
 
-# Display brightness management
+# display brightness management
 bindsym XF86MonBrightnessUp     exec "xbacklight +10"
 bindsym XF86MonBrightnessDown   exec "xbacklight -10"
 
-# Lenovo Key wifi-menu
+# webcam
+bindym XF86WebCam               exec /bin/cheese
+
+# lenovo Key wifi-menu
 bindsym XF86Launch1             exec  urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F1                 exec ~/.i3/util/Authenticator.sh google
-bindsym $mod+F2                 exec ~/.i3/util/Authenticator.sh facebook
-bindsym $mod+F3                 exec ~/.i3/util/Authenticator.sh dropbox
+bindsym $mod+F1                 exec /opt/JAuth/Authenticator.sh google
+bindsym $mod+F2                 exec /opt/JAuth/Authenticator.sh facebook
+bindsym $mod+F3                 exec /opt/JAuth/Authenticator.sh dropbox
 
 # start dmenu-launcher
 bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
@@ -233,6 +236,7 @@ for_window [class="teamspeak3"]     floating enable
 for_window [class="rhythmbox"]      floating enable
 for_window [class="LibreOffice"]    floating enable
 for_window [class="JAuth"]          floating enable
+for_window [class="plecs"]          floating enable
 
 # 0px Border 
 for_window [class="chrome"]         border none
@@ -245,33 +249,36 @@ for_window [class="URxvt" ]         border 1pixel
 #            auto start with i3             #
 #############################################
 
+# terminal daemon
+exec --no-startup-id urxvtd -f
+
 # less eye pain
 exec --no-startup-id redshift-gtk
 exec --no-startup-id compton -cCGb
 
-# fucking no beep!
+# no beep!
 exec --no-startup-id xset b off
 
 # set dpi for my monitor
-exec --no-startup-id xrandr --dpi 81
+#exec --no-startup-id xrandr --dpi 81
 
 # set mouse accel
-exec --no-startup-id xset m 1/4 1
+#exec --no-startup-id xset m 1/4 1
 
 # volnoti volume changer
 exec --no-startup-id volnoti
 
 # numlock on by default
-exec --no-startup-id numlockx on
+#exec --no-startup-id numlockx on
 
 # wallpapers
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.i3/util/wallpapers.sh
 
 # archlinux update notifier
 exec --no-startup-id aarchup
 
+# telegram
+exec telegram-desktop
+
 # dropbox daemon
 exec dropbox start
-
-# telegram
-#exec -no-startup-id telegram-desktop
