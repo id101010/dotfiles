@@ -11,10 +11,28 @@
 #                       |_|                     |_|         #
 #############################################################
 
+# 
+# ./setup.sh            - download repository to $HOME/.dotfiles and symlink everythin ing place
+# ./setup.sh clean      - backup all files in $BAKFILES to .dotfilebackup
+#
+# The dependencies for this script are (arch linux repo names):
+#   - i3-wm
+#   - i3status
+#   - i3lock
+#   - dmenu
+#   - zsh
+#   - vim
+#   - rxvt-unicode
+#   - tmux
+#   - feh
+#   - volnoti (AUR, GitHub)
+#   - jauth-git (AUR, GitHub)
+
 # Files and folders
 DOTFILES="$HOME/.dotfiles"
 
-BAKFILES=".zshrc
+BAKFILES=".i3
+          .zshrc
           .tmux.conf
           .vimrc
           .Xdefaults"
@@ -33,8 +51,7 @@ if [ "$1" == "clean" ]; then
     # Backup each config file specified by $BAKFILES
     for file in $BAKFILES
     do
-        cp -v $HOME/$file $BAKFOLD/$file
-        rm -rf $HOME/$file
+        mv -v $HOME/$file $BAKFOLD/$file
     done
 
     exit
