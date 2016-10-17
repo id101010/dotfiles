@@ -1,4 +1,20 @@
 #!/usr/bin/python2
+
+###############################
+#  _ ____  _     _            #
+# (_)___ \| |   | |           #
+#  _  __) | |__ | |_   _ _ __ #
+# | ||__ <| '_ \| | | | | '__|#
+# | |___) | |_) | | |_| | |   #
+# |_|____/|_.__/|_|\__,_|_|   #
+#                             #
+###############################
+
+"""
+   A simple python script that takes a 
+   screenshot, blurs it and invokes i3lock.
+"""
+
 import gtk.gdk
 import os, sys
 from PIL import ImageFilter

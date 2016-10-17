@@ -53,9 +53,9 @@ bindym XF86WebCam               exec /bin/cheese
 bindsym XF86Launch1             exec  urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F1                 exec /opt/JAuth/Authenticator.sh google
-bindsym $mod+F2                 exec /opt/JAuth/Authenticator.sh facebook
-bindsym $mod+F3                 exec /opt/JAuth/Authenticator.sh dropbox
+bindsym $mod+F1                 exec ~/.i3/util/Authenticator.sh google
+bindsym $mod+F2                 exec ~/.i3/util/Authenticator.sh facebook
+bindsym $mod+F3                 exec ~/.i3/util/Authenticator.sh dropbox
 
 # start dmenu-launcher
 bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh

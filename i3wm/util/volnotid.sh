@@ -1,5 +1,23 @@
 #!/bin/bash
 
+##########################################
+#             _             _   _     _  #
+#            | |           | | (_)   | | #
+# __   _____ | |_ __   ___ | |_ _  __| | #
+# \ \ / / _ \| | '_ \ / _ \| __| |/ _` | #
+#  \ V / (_) | | | | | (_) | |_| | (_| | #
+#   \_/ \___/|_|_| |_|\___/ \__|_|\__,_| #
+#                                        #
+##########################################
+
+#
+# This script uses volnoti, which can be installed from git or 
+# from the arch aur.
+# 
+# yaourt -S volnoti
+#
+
+
 VOLUME=$(amixer get Master | grep Mono: | sed 's|[^[]*\[\([0-9]*\).*|\1|')
 VALUE=3dB
 MUTE=0
