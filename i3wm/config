@@ -13,7 +13,7 @@
 #############################################
 
 # font
-set $font "pango:RobotoMono 10"
+set $font "pango:Droid Sans Mono for Powerline 10"
 font $font
 
 # floating modifier
@@ -23,10 +23,17 @@ set $mod mod4
 floating_modifier $mod
 
 # remove window decorations
-new_window pixel
+#new_window pixel
 
 # focus follows mouse
 focus_follows_mouse yes
+
+#gaps
+gaps inner 13
+gaps outer 5
+#
+##border
+new_window pixel 3
 
 
 #############################################
@@ -53,9 +60,9 @@ bindym XF86WebCam               exec /bin/cheese
 bindsym XF86Launch1             exec  urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F1                 exec ~/.i3/util/Authenticator.sh google
-bindsym $mod+F2                 exec ~/.i3/util/Authenticator.sh facebook
-bindsym $mod+F3                 exec ~/.i3/util/Authenticator.sh dropbox
+bindsym $mod+F1                 exec /opt/JAuth/authenticator.sh google
+bindsym $mod+F2                 exec /opt/JAuth/authenticator.sh facebook
+bindsym $mod+F3                 exec /opt/JAuth/authenticator.sh dropbox
 
 # start dmenu-launcher
 bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
@@ -135,10 +142,10 @@ bindsym $mod+x                  move scratchpad
 #############################################
 
 # name for the workspaces
-set $tag1 "1 Terminal"
-set $tag2 "2 Internet"
-set $tag3 "3 Coding"
-set $tag4 "4 Music"
+set $tag1 "Terminal"
+set $tag2 "Internet"
+set $tag3 "Coding"
+set $tag4 "Music"
 
 # switch to workspace
 bindsym $mod+1                  workspace $tag1
@@ -184,18 +191,38 @@ mode "resize" {
 #                 Colors                    #
 #############################################
 
-# colorscheme
+# Darkbrown colorscheme
 set $DARKBROWN      #402e2e
 set $LIGHTBROWN     #978965
 set $DARKGREY       #1f1f1f
 set $DARKRED        #9b0e0e
 
-# name                  #top        #border     #text
-client.focused          $DARKBROWN  $LIGHTBROWN $DARKBROWN
-client.unfocused        $DARKBROWN  $DARKBROWN  $LIGHTBROWN
-client.focused_inactive $DARKBROWN  $DARKBROWN  $LIGHTBROWN
-client.urgent           $DARKBROWN  $DARKBROWN  $LIGHTBROWN
+# Solarized colorscheme
+set $BACKGROUND     #002b36
+set $FOREGROUND     #93a1a1
+set $LIGHTGREY      #dc322f
+set $GREEN          #859900
+set $BROWN          #b58900
+set $BLUE           #268bd2
+set $VIOLET         #6c71c4
+set $MAGENTA        #2aa198
+set $WHITE          #fdf6e3
 
+client.background       #ffffff
+
+# Darkbrown colorscheme
+# name                  #border     #background  #text        #indicator   #child_border
+#client.focused          $DARKBROWN  $LIGHTBROWN  $DARKBROWN   $LIGHTBROWN  $DARKBROWN
+#client.unfocused        $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
+#client.focused_inactive $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
+#client.urgent           $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
+
+# Solarized colorscheme
+# name                  #border     #background   #text         #indicator   #child_border
+client.focused          $MAGENTA    $FOREGROUND   $FOREGROUND   $GREEN       $MAGENTA
+client.unfocused        $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
+client.focused_inactive $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
+client.urgent           $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
 
 #############################################
 #                 i3-bar                    #
@@ -207,17 +234,31 @@ bar {
     i3bar_command           /usr/bin/i3bar
     status_command          i3status -c ~/.i3/i3status.conf
     separator_symbol        ".::"
-    
-    colors {
-        statusline  $LIGHTBROWN
-        background  $DARKGREY
-        separator   $DARKRED
 
-        # name             #border      #bg         #text
-        focused_workspace  $LIGHTBROWN  $DARKBROWN  $LIGHTBROWN
-        active_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
-        inactive_workspace $DARKBROWN   $DARKBROWN  $LIGHTBROWN
-        urgent_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
+# Darkbrown colorscheme
+#    colors {
+#        statusline  $LIGHTBROWN
+#        background  $DARKGREY
+#        separator   $DARKRED
+#
+#        # name             #border      #bg         #text
+#        focused_workspace  $LIGHTBROWN  $DARKBROWN  $LIGHTBROWN
+#        active_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
+#        inactive_workspace $DARKBROWN   $DARKBROWN  $LIGHTBROWN
+#        urgent_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
+#  }
+
+# Solarized colorscheme
+    colors {
+        statusline  $GREEN
+        background  $BACKGROUND
+        separator   $MAGENTA
+
+        # name             #border     #bg         #text
+        focused_workspace  $MAGENTA    $BACKGROUND $GREEN
+        active_workspace   $BACKGROUND $BACKGROUND $GREEN
+        inactive_workspace $BACKGROUND $BACKGROUND $GREEN
+        urgent_workspace   $BACKGROUND $BACKGROUND $GREEN
   }
 }
 
