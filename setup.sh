@@ -27,6 +27,7 @@
 #   - feh
 #   - volnoti (AUR, GitHub)
 #   - jauth-git (AUR, GitHub)
+#   - powerline-fonts-git (AUR, GitHub)
 
 # Files and folders
 DOTFILES="$HOME/.dotfiles"
@@ -61,9 +62,6 @@ fi
 if [ ! -e "$HOME/.dotfiles/"  ]; then
     git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
 fi
-
-# Uncomment to install powerlinefonts from the arch linux user repository
-#yaourt -S powerline-fonts-git
 
 # ------------------------------------------------ Setup I3wm
 ln -sfv $DOTFILES/i3wm/ $HOME/.i3
