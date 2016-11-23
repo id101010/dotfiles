@@ -221,7 +221,7 @@ client.background       #ffffff
 # name                  #border      #background   #text         #indicator   #child_border
 client.focused          $MAGENTA     $BACKGROUND   $GREEN        $GREEN       $MAGENTA
 client.unfocused        $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
-client.focused_inactive $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
+client.focused_inactive $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
 client.urgent           $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
 
 #############################################
