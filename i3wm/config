@@ -142,10 +142,10 @@ bindsym $mod+x                  move scratchpad
 #############################################
 
 # name for the workspaces
-set $tag1 "Terminal"
-set $tag2 "Internet"
-set $tag3 "Coding"
-set $tag4 "Music"
+set $tag1 "1 Terminal"
+set $tag2 "2 Internet"
+set $tag3 "3 Coding"
+set $tag4 "4 Music"
 
 # switch to workspace
 bindsym $mod+1                  workspace $tag1
@@ -218,11 +218,11 @@ client.background       #ffffff
 #client.urgent           $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
 
 # Solarized colorscheme
-# name                  #border     #background   #text         #indicator   #child_border
-client.focused          $MAGENTA    $FOREGROUND   $FOREGROUND   $GREEN       $MAGENTA
-client.unfocused        $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
-client.focused_inactive $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
-client.urgent           $LIGHTGREY  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
+# name                  #border      #background   #text         #indicator   #child_border
+client.focused          $MAGENTA     $BACKGROUND   $GREEN        $GREEN       $MAGENTA
+client.unfocused        $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
+client.focused_inactive $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
+client.urgent           $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
 
 #############################################
 #                 i3-bar                    #
