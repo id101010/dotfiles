@@ -36,7 +36,9 @@ BAKFILES=".i3
           .zshrc
           .tmux.conf
           .vimrc
-          .Xdefaults"
+          .Xdefaults
+          .ncmpcpp/config
+          .mpd/mpd.conf"
 
 BAKFOLD="$HOME/.dotfilebackup"
 
@@ -80,3 +82,9 @@ ln -sfv $DOTFILES/urxvt/Xdefaults $HOME/.Xdefaults
 
 # ------------------------------------------------ Setup wallpapers
 ln -sfv $DOTFILES/wallpapers/ $HOME/.wallpapers
+
+# ------------------------------------------------ Setup mpd
+ln -sfv $DOTFILES/mpd/ $HOME/.mpd
+
+# ------------------------------------------------ Setup ncmpcpp
+ln -sfv $DOTFILES/ncmpcpp/ $HOME/.ncmpcpp
