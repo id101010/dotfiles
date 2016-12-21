@@ -61,8 +61,9 @@ if [ "$1" == "clean" ]; then
 fi
 
 # Clone the repository if it doesn't exist 
-if [ ! -e "$HOME/.dotfiles/"  ]; then
+if [ ! -e $DOTFILES  ]; then
     git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
+    rm -rf $DOTFILES/.git
 fi
 
 # ------------------------------------------------ Setup I3wm
