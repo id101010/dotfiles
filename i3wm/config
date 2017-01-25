@@ -13,7 +13,8 @@
 #############################################
 
 # font
-set $font "pango:Droid Sans Mono for Powerline 10"
+set $font "pango:Droid Sans Mono 10"
+#set $font "pagno:Droid Sans Mono for Powerline 10"
 font $font
 
 # floating modifier
@@ -23,15 +24,11 @@ set $mod mod4
 floating_modifier $mod
 
 # remove window decorations
-#new_window pixel
+new_window pixel
 
 # focus follows mouse
 focus_follows_mouse yes
 
-#gaps
-gaps inner 13
-gaps outer 5
-#
 ##border
 new_window pixel 3
 
@@ -45,9 +42,12 @@ new_window pixel 3
 # 
 
 # sound softkeys management
-bindsym XF86AudioRaiseVolume    exec ~/.i3/util/volnotid.sh up
-bindsym XF86AudioLowerVolume    exec ~/.i3/util/volnotid.sh down
-bindsym XF86AudioMute           exec ~/.i3/util/volnotid.sh mute
+#bindsym XF86AudioRaiseVolume    exec ~/.i3/util/volnotid.sh up
+#bindsym XF86AudioLowerVolume    exec ~/.i3/util/volnotid.sh down
+#bindsym XF86AudioMute           exec ~/.i3/util/volnotid.sh mute
+bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 5%+ unmute && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume    exec amixer -q sset Master 5%- unmute && killall -SIGUSR1 i3status
+bindsym XF86AudioMute           exec amixer -q sset Master toggle && killall -SIGUSR1 i3status
 
 # display brightness management
 bindsym XF86MonBrightnessUp     exec "xbacklight +10"
@@ -68,14 +68,17 @@ bindsym $mod+F3                 exec /opt/JAuth/authenticator.sh dropbox
 bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
 
 # lock i3 with i3lock
-bindsym $mod+Shift+x            exec ~/.i3/util/i3blur.py && systemctl suspend
+#bindsym $mod+Shift+x           exec i3lock -c 000000
+bindsym $mod+Shift+x            exec ~/.i3/util/i3blur.py
 
 #############################################
 #                  Keymaps                  #
 #############################################
 
 # start terminal
-bindsym $mod+Return             exec --no-startup-id i3-sensible-terminal
+#bindsym $mod+Return             exec --no-startup-id gnome-terminal
+#bindsym $mod+Return             exec --no-startup-id urxvt
+bindsym $mod+Return             exec --no-startup-id urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -198,10 +201,11 @@ set $DARKGREY       #1f1f1f
 set $DARKRED        #9b0e0e
 
 # Solarized colorscheme
-set $BACKGROUND     #002b36
+#set $BACKGROUND     #002b36
+set $BACKGROUND     #1c5b98
 set $FOREGROUND     #93a1a1
 set $LIGHTGREY      #dc322f
-set $GREEN          #859900
+set $GREEN          #b0cc54
 set $BROWN          #b58900
 set $BLUE           #268bd2
 set $VIOLET         #6c71c4
@@ -219,7 +223,7 @@ client.background       #ffffff
 
 # Solarized colorscheme
 # name                  #border      #background   #text         #indicator   #child_border
-client.focused          $MAGENTA     $BACKGROUND   $GREEN        $GREEN       $MAGENTA
+client.focused          $FOREGROUND  $MAGENTA      $GREEN        $GREEN       $MAGENTA
 client.unfocused        $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
 client.focused_inactive $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
 client.urgent           $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $BACKGROUND
@@ -233,7 +237,7 @@ bar {
     font                    $font
     i3bar_command           /usr/bin/i3bar
     status_command          i3status -c ~/.i3/i3status.conf
-    separator_symbol        ".::"
+    separator_symbol        ""
 
 # Darkbrown colorscheme
 #    colors {
@@ -280,22 +284,25 @@ for_window [class="JAuth"]          floating enable
 for_window [class="plecs"]          floating enable
 
 # 0px Border 
-for_window [class="chrome"]         border none
-for_window [class="Firefox"]        border none
+#for_window [class="chrome"]         border none
+#for_window [class="Firefox"]        border none
 
 # 1px Border
-for_window [class="URxvt" ]         border 1pixel
+#for_window [class="URxvt" ]         border 1pixel
 
 #############################################
 #            auto start with i3             #
 #############################################
 
 # terminal daemon
-exec --no-startup-id urxvtd -f
+exec --no-startup-id urxvtd --quiet --opendisplay --fork
+
+# pidgin chat cliente
+exec --no-startup-id pidgin
 
 # less eye pain
 exec --no-startup-id redshift-gtk
-exec --no-startup-id compton -cCGb
+exec --no-startup-id compton -cCGbD 10
 
 # no beep!
 exec --no-startup-id xset b off
@@ -304,22 +311,14 @@ exec --no-startup-id xset b off
 #exec --no-startup-id xrandr --dpi 81
 
 # set mouse accel
-#exec --no-startup-id xset m 1/4 1
-
-# volnoti volume changer
-exec --no-startup-id volnoti
+exec --no-startup-id xset m 1/4 1
 
 # numlock on by default
 #exec --no-startup-id numlockx on
 
+# nm-applet (yehhh vpn ...)
+exec --no-startup-id nm-applet
+
 # wallpapers
-exec --no-startup-id ~/.i3/util/wallpapers.sh
-
-# archlinux update notifier
-exec --no-startup-id aarchup
-
-# telegram
-exec telegram-desktop
-
-# dropbox daemon
-exec dropbox start
+#exec --no-startup-id ~/.i3/util/wallpapers.sh
+exec --no-startup-id feh --bg-scale ~/.wallpapers/puzzle1.png

@@ -27,21 +27,10 @@ sz = w.get_size()
 print "[DEBUG]: The size of the window is %d x %d" % sz
 
 # Get a drawable with the size of the desktop
-scr = gtk.gdk.Pixbuf(   gtk.gdk.COLORSPACE_RGB,
-                        False,
-                        8,
-                        sz[0],
-                        sz[1])
+scr = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, sz[0], sz[1])
 
 # Fill it with the screenshot
-scr = scr.get_from_drawable(w,
-                            w.get_colormap(),
-                            0,
-                            0,
-                            0,
-                            0,
-                            sz[0],
-                            sz[1])
+scr = scr.get_from_drawable(w, w.get_colormap(), 0, 0, 0, 0, sz[0], sz[1])
 
 # Save the screenshot as png
 if(scr != None):    
@@ -52,7 +41,7 @@ else:
 
 # Load the screenshot as image and blur it
 iml = Image.open("/tmp/i3screen.png")
-iml = iml.filter(ImageFilter.BLUR)
+iml = iml.filter(ImageFilter.GaussianBlur(8))
 
 # Save the blured screenshot and call i3lock
 if(iml != None):

@@ -10,10 +10,7 @@
 
 # Real transparency         -> needs composite manager
 URxvt.depth:                32
-URxvt.background:           rgba:0000/0000/0200/cfff
-
-# Fake transparency
-#URxvt.transparent:          true
+URxvt.background:           rgba:0000/0000/0200/1fff
 #URxvt.shading:              30
 
 URxvt.tintColor:            White
@@ -21,12 +18,9 @@ URxvt.saveLines:            9000000
 URxvt.foreground:           Grey
 
 # Fonts                     For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
-#URxvt.font:                 xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
-#URxvt.boldFont:             xft:Droid Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
-#URxvt.tabbed.font:          xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
-URxvt.font:                 xft:Roboto Mono for Powerline:pixelsize=15:antialias=true:hinting=false
-URxvt.boldFont:             xft:RobotoMono for Powerline :bold:pixelsize=14:antialias=true:hinting=true
-URxvt.tabbed.font:          xft:RobotoMono for Powerline :pixelsize=14:antialias=true:hinting=true
+URxvt.font:                 xft:Ubuntu mono:medium:size=12,xft:Ubuntu Mono derivative Powerline:pixelsize=12
+xterm.faceName:             xft:Ubuntu mono:medium:size=12,xft:Ubuntu Mono derivative Powerline:pixelsize=12
+#URxvt.font:                 xft:DejaVu Sans Mono:medium:size=12,xft:DejaVu Sans Mono for Powerline:pixelsize=12
 
 # Misc configurations
 URxvt.colorUL:                  #4682B4
@@ -42,7 +36,7 @@ URxvt.inheritPixmap:            true
 # Scroll behavior, don't scroll with output
 URxvt.scrollBar:            false
 URxvt.secondaryScroll:      true
-URxvt.scrollTtyOutput:      false  
+URxvt.scrollTtyOutput:      false
 URxvt.scrollWithBuffer:     true
 URxvt.scrollTtyKeypress:    true
 

@@ -17,7 +17,6 @@
 # yaourt -S volnoti
 #
 
-
 VOLUME=$(amixer get Master | grep Mono: | sed 's|[^[]*\[\([0-9]*\).*|\1|')
 VALUE=3dB
 MUTE=0

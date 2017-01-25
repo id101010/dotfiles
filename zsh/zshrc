@@ -86,7 +86,7 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
 fi
 
 chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+  print -l $PWD ${(u)dirstack} > $DIRSTACKFILE
 }
 
 DIRSTACKSIZE=20
@@ -118,5 +118,8 @@ setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
 setopt pushdminus
 setopt nohashdirs
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 rehash
+
+source <(oc completion zsh)
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
