@@ -8,9 +8,12 @@
 #                              #
 ################################
 
+Xcursor.theme: adwaita
+Xcursor.size: 16
+
 # Real transparency         -> needs composite manager
 URxvt.depth:                32
-URxvt.background:           rgba:0000/0000/0200/cfff
+URxvt.background:           rgba:0000/0000/0200/afff
 
 # Fake transparency
 #URxvt.transparent:          true

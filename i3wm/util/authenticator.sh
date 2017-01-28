@@ -18,9 +18,9 @@
 # yaourt -S jauth-git
 #
 
-SECRET_GOOGLE="asdf"
-SECRET_FACEBOOK="asdf"
-SECRET_DROPBOX="asdf"
+SECRET_GOOGLE="There"
+SECRET_FACEBOOK="IsJust"
+SECRET_DROPBOX="NoWayImUploadingThisToGit"
 
 ARG="${1}"
 

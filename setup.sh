@@ -36,9 +36,7 @@ BAKFILES=".i3
           .zshrc
           .tmux.conf
           .vimrc
-          .Xdefaults
-          .ncmpcpp/config
-          .mpd/mpd.conf"
+          .Xdefaults"
 
 BAKFOLD="$HOME/.dotfilebackup"
 
@@ -61,9 +59,8 @@ if [ "$1" == "clean" ]; then
 fi
 
 # Clone the repository if it doesn't exist 
-if [ ! -e $DOTFILES  ]; then
+if [ ! -e "$HOME/.dotfiles/"  ]; then
     git clone https://github.com/id101010/LinuxDotFiles.git $DOTFILES
-    rm -rf $DOTFILES/.git
 fi
 
 # ------------------------------------------------ Setup I3wm
@@ -83,9 +80,3 @@ ln -sfv $DOTFILES/urxvt/Xdefaults $HOME/.Xdefaults
 
 # ------------------------------------------------ Setup wallpapers
 ln -sfv $DOTFILES/wallpapers/ $HOME/.wallpapers
-
-# ------------------------------------------------ Setup mpd
-ln -sfv $DOTFILES/mpd/ $HOME/.mpd
-
-# ------------------------------------------------ Setup ncmpcpp
-ln -sfv $DOTFILES/ncmpcpp/ $HOME/.ncmpcpp
