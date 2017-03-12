@@ -45,8 +45,8 @@ new_window pixel 3
 #bindsym XF86AudioRaiseVolume    exec ~/.i3/util/volnotid.sh up
 #bindsym XF86AudioLowerVolume    exec ~/.i3/util/volnotid.sh down
 #bindsym XF86AudioMute           exec ~/.i3/util/volnotid.sh mute
-bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 5%+ unmute && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume    exec amixer -q sset Master 5%- unmute && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 10%- unmute && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume    exec amixer -q sset Master 10%+ unmute && killall -SIGUSR1 i3status
 bindsym XF86AudioMute           exec amixer -q sset Master toggle && killall -SIGUSR1 i3status
 
 # display brightness management
@@ -275,7 +275,7 @@ for_window [class="Thunar"]         floating enable
 for_window [class="Nautilus"]       floating enable
 for_window [class="GParted"]        floating enable
 for_window [class="Gedit"]          floating enable
-for_window [class="Evince"]         floating enable
+#for_window [class="Evince"]         floating enable
 for_window [class="Telegram"]       floating enable
 for_window [class="teamspeak3"]     floating enable
 for_window [class="rhythmbox"]      floating enable
@@ -285,7 +285,7 @@ for_window [class="plecs"]          floating enable
 
 # 0px Border 
 #for_window [class="chrome"]         border none
-#for_window [class="Firefox"]        border none
+for_window [class="Firefox"]        border none
 
 # 1px Border
 #for_window [class="URxvt" ]         border 1pixel
@@ -311,7 +311,8 @@ exec --no-startup-id xset b off
 #exec --no-startup-id xrandr --dpi 81
 
 # set mouse accel
-exec --no-startup-id xset m 1/4 1
+#exec --no-startup-id xset m 1/4 1
+exec --no-startup-id xset m 1 1 
 
 # numlock on by default
 #exec --no-startup-id numlockx on
