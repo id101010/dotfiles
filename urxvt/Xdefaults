@@ -8,19 +8,18 @@
 #                              #
 ################################
 
-# Real transparency         -> needs composite manager
-URxvt.depth:                32
-URxvt.background:           rgba:0000/0000/0200/1fff
-#URxvt.shading:              30
+# Real transparency             -> needs composite manager
+URxvt.depth:                    32
+URxvt.background:               rgba:0000/0000/0200/cfff
+URxvt.shading:                  30
 
-URxvt.tintColor:            White
-URxvt.saveLines:            9000000
-URxvt.foreground:           Grey
+URxvt.tintColor:                White
+URxvt.saveLines:                9000000
+URxvt.foreground:               Grey
 
-# Fonts                     For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
-URxvt.font:                 xft:Ubuntu mono:medium:size=12,xft:Ubuntu Mono derivative Powerline:pixelsize=12
-xterm.faceName:             xft:Ubuntu mono:medium:size=12,xft:Ubuntu Mono derivative Powerline:pixelsize=12
-#URxvt.font:                 xft:DejaVu Sans Mono:medium:size=12,xft:DejaVu Sans Mono for Powerline:pixelsize=12
+# Fonts                         For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
+#URxvt.font:                    xft:DejaVu Sans Mono:medium:size=12,xft:DejaVu Sans Mono for Powerline:pixelsize=12
+URxvt.font:                     xft:Roboto Mono for Powerline:antialias=true:medium:pixelsize=14
 
 # Misc configurations
 URxvt.colorUL:                  #4682B4
@@ -34,13 +33,20 @@ URxvt.tabbed.secondaryScroll:   true
 URxvt.inheritPixmap:            true 
 
 # Scroll behavior, don't scroll with output
-URxvt.scrollBar:            false
-URxvt.secondaryScroll:      true
-URxvt.scrollTtyOutput:      false
-URxvt.scrollWithBuffer:     true
-URxvt.scrollTtyKeypress:    true
+URxvt.scrollBar:                false
+URxvt.secondaryScroll:          true
+URxvt.scrollTtyOutput:          false
+URxvt.scrollWithBuffer:         true
+URxvt.scrollTtyKeypress:        true
 
 # Clickable urls
-URxvt.perl-ext-common:      default,matcher
-URxvt.url-launcher:         /usr/bin/xdg-open
-URxvt.matcher.button:       1
+URxvt.perl-ext-common:          default,matcher
+URxvt.url-launcher:             /usr/bin/xdg-open
+URxvt.matcher.button:           1
+
+# Change Fontsize on the fly (needs urxvt-resize-font)
+URxvt.perl-ext-common:          resize-font
+URxvt.resize-font.smaller:      C-Down
+URxvt.resize-font.bigger:       C-Up
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false

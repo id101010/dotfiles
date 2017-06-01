@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BG="#002b36"
+BG="#1c5b98"
 FG="#93a1a1"
 SBG="#6c71c4"
 SFG="#93a1a1"

@@ -21,7 +21,9 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
 # Promptstyle
-prompt walters
+#prompt walters
+#PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
+#RPROMPT='[%F{yellow}%?%f]'
 
 # Autocomplete stuff
 zstyle ':completion:*' menu select
@@ -118,8 +120,10 @@ setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
 setopt pushdminus
 setopt nohashdirs
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 rehash
 
-source <(oc completion zsh)
+LS_COLORS=$LS_COLORS:'di=1;37:' ; export LS_COLORS
+
+#source <(oc completion zsh)
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

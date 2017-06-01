@@ -46,19 +46,19 @@ call vundle#begin()
     Plugin 'nanotech/jellybeans.vim'
     
     " Super easy commenting, toggle comments etc "
-    Plugin 'scrooloose/nerdcommenter'
+    "Plugin 'scrooloose/nerdcommenter'
     
-    " Autoclose (, " etc "
+    " Autoclose
     "Plugin 'Townk/vim-autoclose'
     
     " Git wrapper inside Vim "
-    Plugin 'tpope/vim-fugitive'
+    "Plugin 'tpope/vim-fugitive'
     
     "Handle surround chars like "
     "Plugin 'tpope/vim-surround'
     
     " Vim signs (:h signs) for modified lines based off VCS (e.g. Git) "
-    Plugin 'mhinz/vim-signify'
+    "Plugin 'mhinz/vim-signify'
 " Finish Vundle stuff "
 call vundle#end()
 
