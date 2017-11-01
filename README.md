@@ -22,9 +22,3 @@ You'll need the following software for a fully functional setup.
 - feh
 - volnoti (AUR, GitHub)
 - jauth-git (AUR, GitHub)
-
-# Screenshots
-
-![Desktop](images/desktop_screenshot.png)
-
-![VIM](images/coding_screenshot.png)

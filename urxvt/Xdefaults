@@ -9,44 +9,80 @@
 ################################
 
 # Real transparency             -> needs composite manager
-URxvt.depth:                    32
-URxvt.background:               rgba:0000/0000/0200/cfff
-URxvt.shading:                  30
+URxvt*depth:                    32
+URxvt*background:               rgba:0000/0000/0000/cfff
 
-URxvt.tintColor:                White
-URxvt.saveLines:                9000000
-URxvt.foreground:               Grey
+# Fake transparency
+#URxvt.transparent:          true
+#URxvt.shading:              30
+
+#URxvt*tintColor:                White
+URxvt*saveLines:                9000000
+#URxvt*foreground:               Grey
 
 # Fonts                         For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
-#URxvt.font:                    xft:DejaVu Sans Mono:medium:size=12,xft:DejaVu Sans Mono for Powerline:pixelsize=12
-URxvt.font:                     xft:Roboto Mono for Powerline:antialias=true:medium:pixelsize=14
+#URxvt.font:                     xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
+#URxvt.boldFont:                 xft:Droid Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+#URxvt.tabbed.font:              xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
+URxvt*font:                     xft:Roboto Mono for Powerline:pixelsize=15:antialias=true:hinting=false
+URxvt*boldFont:                 xft:Roboto Mono for Powerline :bold:pixelsize=14:antialias=true:hinting=true
+URxvt*tabbed.font:              xft:Roboto Mono for Powerline :pixelsize=14:antialias=true:hinting=true
 
 # Misc configurations
-URxvt.colorUL:                  #4682B4
-URxvt.tabbed.saveLines:         1000
-URxvt.tabbed.scrollBar:         false
-URxvt.tabbed.tabbar-fg:         3
-URxvt.tabbed.tabbar-bg:         0
-URxvt.tabbed.tab-fg:            0
-URxvt.tabbed.tab-bg:            1
-URxvt.tabbed.secondaryScroll:   true
-URxvt.inheritPixmap:            true 
+URxvt*colorUL:                  #4682B4
+URxvt*tabbed.scrollBar:         false
+URxvt*tabbed.tabbar-fg:         3
+URxvt*tabbed.tabbar-bg:         0
+URxvt*tabbed.tab-fg:            0
+URxvt*tabbed.tab-bg:            1
+URxvt*tabbed.secondaryScroll:   true
+URxvt*inheritPixmap:            true 
 
 # Scroll behavior, don't scroll with output
-URxvt.scrollBar:                false
-URxvt.secondaryScroll:          true
-URxvt.scrollTtyOutput:          false
-URxvt.scrollWithBuffer:         true
-URxvt.scrollTtyKeypress:        true
+URxvt*scrollBar:                false
+URxvt*secondaryScroll:          true
+URxvt*scrollTtyOutput:          false
+URxvt*scrollWithBuffer:         true
+URxvt*scrollTtyKeypress:        true
 
 # Clickable urls
-URxvt.perl-ext-common:          default,matcher
-URxvt.url-launcher:             /usr/bin/xdg-open
-URxvt.matcher.button:           1
+URxvt*perl-ext-common:          default,matcher
+URxvt*url-launcher:             /usr/bin/xdg-open
+URxvt*matcher.button:           1
 
-# Change Fontsize on the fly (needs urxvt-resize-font)
-URxvt.perl-ext-common:          resize-font
-URxvt.resize-font.smaller:      C-Down
-URxvt.resize-font.bigger:       C-Up
-URxvt.iso14755:                 false
-URxvt.iso14755_52:              false
+! special
+URxvt*foreground:   #93a1a1
+URxvt*background:   #002b36
+URxvt*cursorColor:  #93a1a1
+
+! black
+URxvt*color0:       #002b36
+URxvt*color8:       #657b83
+
+! red
+URxvt*color1:       #dc322f
+URxvt*color9:       #dc322f
+
+! green
+URxvt*color2:       #859900
+URxvt*color10:      #859900
+
+! yellow
+URxvt*color3:       #b58900
+URxvt*color11:      #b58900
+
+! blue
+URxvt*color4:       #268bd2
+URxvt*color12:      #268bd2
+
+! magenta
+URxvt*color5:       #6c71c4
+URxvt*color13:      #6c71c4
+
+! cyan
+URxvt*color6:       #2aa198
+URxvt*color14:      #2aa198
+
+! white
+URxvt*color7:       #93a1a1
+URxvt*color15:      #fdf6e3
