@@ -1,0 +1,8 @@
+[user]
+    email = aaron@duckpond.ch
+    name = id101010
+    signingkey = 348F38C5
+[commit]
+    gpgsign = true
+[alias]
+    logs = log --show-signature
