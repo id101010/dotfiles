@@ -13,7 +13,7 @@
 #############################################
 
 # font
-set $font "pango:Roboto Mono for Powerline 11"
+set $font "pango:Roboto Mono for Powerline 10"
 font $font
 
 # floating modifier
@@ -56,24 +56,22 @@ bindym XF86WebCam               exec /bin/cheese
 bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F1                 exec /opt/JAuth/authenticator.sh google
-bindsym $mod+F2                 exec /opt/JAuth/authenticator.sh facebook
-bindsym $mod+F3                 exec /opt/JAuth/authenticator.sh dropbox
 bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
 
 # start dmenu-launcher
-bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
+#bindsym $mod+d                  exec ~/.i3/util/i3dmenu-wrapper.sh
+bindsym $mod+d                  exec rofi -show drun -theme solarized_alternate -font "mono 10"
 
 # lock i3 with i3lock
-bindsym $mod+Shift+x            exec i3lock-fancy
+bindsym $mod+Shift+x            exec i3lock-fancy-dualmonitor
 
 #############################################
 #                  Keymaps                  #
 #############################################
 
 # start terminal
-bindsym $mod+Return             exec --no-startup-id urxvt
-#bindsym $mod+Return             exec --no-startup-id urxvtc
+#bindsym $mod+Return             exec --no-startup-id urxvt
+bindsym $mod+Return             exec --no-startup-id urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -272,9 +270,6 @@ for_window [class="Nautilus"]       floating enable
 for_window [class="GParted"]        floating enable
 for_window [class="Gedit"]          floating enable
 for_window [class="teamspeak3"]     floating enable
-for_window [class="rhythmbox"]      floating enable
-for_window [class="JAuth"]          floating enable
-for_window [class="plecs"]          floating enable
 
 # 0px Border 
 #for_window [class="chrome"]         border none
@@ -291,30 +286,22 @@ for_window [class="Firefox"]        border none
 exec --no-startup-id compton -cCGfb -m1 -D3 --xrender-sync --xrender-sync-fence
 
 # terminal daemon
-#exec --no-startup-id urxvtd -q -f -o
-
-# pidgin chat cliente
-exec --no-startup-id pidgin
+exec --no-startup-id urxvtd -q -f -o
 
 # less eye pain
-#exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift
 
 # no beep!
 exec --no-startup-id xset b off
 
-# set dpi for my monitor
-exec --no-startup-id xrandr --dpi 81
+# Nextcloud Sync
+exec --no-startup-id nextcloud
 
-# nm-applet (yehhh vpn ...)
-#exec --no-startup-id nm-applet
+# nm-applet
+exec --no-startup-id nm-applet
 
 # dunst for notifications and volnoti daemon
 exec --no-startup-id dunst -conf ~/.dunstrc
-exec --no-startup-id volnoti
-
-# Drop all the boxes!
-#exec dropbox start
 
 # wallpapers
-#exec --no-startup-id ~/.i3/util/wallpapers.sh
 exec --no-startup-id feh --bg-fill ~/.wallpapers/puzzle2.png

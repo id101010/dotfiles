@@ -1,24 +1,6 @@
 # LinuxDotFiles
-Personal Linux configuration files for 
+This repository is part of the ansible-archlinux setup. It contains all my personal linux dotfiles.
+All content is managed by [rcm](https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos).
 
-- i3wm
-- vim
-- tmux
-- urxvt
-- zsh
-
-# Dependencies
-
-You'll need the following software for a fully functional setup.
-
-- i3-wm
-- i3status
-- i3lock
-- dmenu
-- zsh
-- vim
-- rxvt-unicode
-- tmux
-- feh
-- volnoti (AUR, GitHub)
-- jauth-git (AUR, GitHub)
+The ansible setup will install this repo to ~/.dotfiles and rcm will take care
+of all symlinks. To add a new dotfile simply execute `mkrc .$DOTFILE`

@@ -10,20 +10,15 @@
 
 # Real transparency             -> needs composite manager
 URxvt*depth:                    32
-URxvt*background:               rgba:0000/0000/0000/cfff
+URxvt*background:               rgba:0000/0000/0000/CFFF
+ARxvt.transparent:              true
+URxvt.tintColor:                white
+URxvt.shading:                  20
 
-# Fake transparency
-#URxvt.transparent:          true
-#URxvt.shading:              30
-
-#URxvt*tintColor:                White
+URxvt*tintColor:                Black
 URxvt*saveLines:                9000000
-#URxvt*foreground:               Grey
 
-# Fonts                         For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
-#URxvt.font:                     xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
-#URxvt.boldFont:                 xft:Droid Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
-#URxvt.tabbed.font:              xft:Droid Sans Mono:pixelsize=18:antialias=true:hinting=true
+# Font                          For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
 URxvt*font:                     xft:Roboto Mono for Powerline:pixelsize=15:antialias=true:hinting=false
 URxvt*boldFont:                 xft:Roboto Mono for Powerline :bold:pixelsize=14:antialias=true:hinting=true
 URxvt*tabbed.font:              xft:Roboto Mono for Powerline :pixelsize=14:antialias=true:hinting=true
@@ -38,6 +33,11 @@ URxvt*tabbed.tab-bg:            1
 URxvt*tabbed.secondaryScroll:   true
 URxvt*inheritPixmap:            true 
 
+#Graphic
+Xft*dpi:                        96
+Xft*antialias:                  true
+Xft*hinting:                    full
+
 # Scroll behavior, don't scroll with output
 URxvt*scrollBar:                false
 URxvt*secondaryScroll:          true
@@ -51,38 +51,38 @@ URxvt*url-launcher:             /usr/bin/xdg-open
 URxvt*matcher.button:           1
 
 ! special
-URxvt*foreground:   #93a1a1
-URxvt*background:   #002b36
-URxvt*cursorColor:  #93a1a1
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
 
 ! black
-URxvt*color0:       #002b36
-URxvt*color8:       #657b83
+*.color0:       #282a2e
+*.color8:       #373b41
 
 ! red
-URxvt*color1:       #dc322f
-URxvt*color9:       #dc322f
+*.color1:       #a54242
+*.color9:       #cc6666
 
 ! green
-URxvt*color2:       #859900
-URxvt*color10:      #859900
+*.color2:       #8c9440
+*.color10:      #b5bd68
 
 ! yellow
-URxvt*color3:       #b58900
-URxvt*color11:      #b58900
+*.color3:       #de935f
+*.color11:      #f0c674
 
 ! blue
-URxvt*color4:       #268bd2
-URxvt*color12:      #268bd2
+*.color4:       #5f819d
+*.color12:      #81a2be
 
 ! magenta
-URxvt*color5:       #6c71c4
-URxvt*color13:      #6c71c4
+*.color5:       #85678f
+*.color13:      #b294bb
 
 ! cyan
-URxvt*color6:       #2aa198
-URxvt*color14:      #2aa198
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! white
-URxvt*color7:       #93a1a1
-URxvt*color15:      #fdf6e3
+*.color7:       #707880
+*.color15:      #c5c8c6
