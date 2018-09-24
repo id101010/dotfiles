@@ -26,7 +26,7 @@ floating_modifier $mod
 new_window pixel
 
 # focus follows mouse
-focus_follows_mouse yes
+focus_follows_mouse no
 
 ##border
 new_window pixel 3
@@ -208,14 +208,7 @@ set $WHITE          #fdf6e3
 
 client.background       #ffffff
 
-# Darkbrown colorscheme
-# name                  #border     #background  #text        #indicator   #child_border
-#client.focused          $DARKBROWN  $LIGHTBROWN  $DARKBROWN   $LIGHTBROWN  $DARKBROWN
-#client.unfocused        $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
-#client.focused_inactive $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
-#client.urgent           $DARKBROWN  $DARKBROWN   $LIGHTBROWN  $LIGHTBROWN  $DARKBROWN
-
-# Solarized colorscheme
+# Solarized theme
 # name                  #border      #background   #text         #indicator   #child_border
 client.focused          $FOREGROUND  $MAGENTA      $GREEN        $GREEN       $MAGENTA
 client.unfocused        $BACKGROUND  $BACKGROUND   $GREEN        $GREEN       $BACKGROUND
@@ -233,20 +226,7 @@ bar {
     status_command          i3status -c ~/.i3/i3status.conf
     separator_symbol        ""
 
-# Darkbrown colorscheme
-#    colors {
-#        statusline  $LIGHTBROWN
-#        background  $DARKGREY
-#        separator   $DARKRED
-#
-#        # name             #border      #bg         #text
-#        focused_workspace  $LIGHTBROWN  $DARKBROWN  $LIGHTBROWN
-#        active_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
-#        inactive_workspace $DARKBROWN   $DARKBROWN  $LIGHTBROWN
-#        urgent_workspace   $DARKBROWN   $DARKBROWN  $LIGHTBROWN
-#  }
-
-    # Solarized colorscheme
+    # Solarized theme
     colors {
         statusline  $LIGHTBLUE
         background  $BACKGROUND

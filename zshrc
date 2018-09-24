@@ -1,11 +1,19 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# Path to your oh-my-zsh installation.  ZSH=/usr/share/oh-my-zsh/
+PATH=$PATH:~/.gem/ruby/2.5.0/bin:$HOME/bin
+
+# Path to your oh-my-zsh installation.
+ZSH=/usr/share/oh-my-zsh/
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+
+if [[ $TERM == "linux" ]] || [[ $TERM == "screen" ]] ; then
+    ZSH_THEME="gentoo"
+else
+    ZSH_THEME="agnoster"
+fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,21 +68,12 @@ plugins=(
   git
   last-working-dir
   fbterm
+  oc
+  ssh-agent
+  gpg-agent
 )
 
 # User configuration
-
-# ALT C and D
-bindkey "[C" forward-word
-bindkey "[D" backward-word
-
-# Start SSH-Agent alon with new terminal
-#if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#    ssh-agent > ~/.ssh-agent-thing
-#fi
-#if [[ "$SSH_AGENT_PID" == "" ]]; then
-#    eval "$(<~/.ssh-agent-thing)"
-#fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -94,6 +93,17 @@ bindkey "[D" backward-word
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# AareGuru Autocompletion
+#source <(aareguru --completion-script-zsh)
+
+# Golang
+export GOPATH=$HOME/go
+
+# Cloudscale Terraform Shizzle ma whizzle
+#export CLOUDSCALE_TOKEN="xmcb6t66var47voridvwkqjsfqcvuuef"
+#export CLOUDSCALE_TOKEN="g3jw5o5zaewj5ctn5gyej633l6qlbm5v"
+#export CLOUDSCALE_TOKEN="ktmj7q4h3ezpxzcunlitptgyerukwall"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -102,6 +112,10 @@ bindkey "[D" backward-word
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#alias cat="lolcat"
+alias lsblk="lsblk -o +LABEL"
+alias ip="ip -c"
+alias showip="ip --brief a"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
