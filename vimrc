@@ -126,3 +126,4 @@ set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below th
 
 "Automaticly reread a file, if file has changed"
 set autoread
+
