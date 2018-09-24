@@ -16,7 +16,7 @@ URxvt.tintColor:                white
 URxvt.shading:                  20
 
 URxvt*tintColor:                Black
-URxvt*saveLines:                9000000
+#URxvt*saveLines:                9000000
 
 # Font                          For Powerlinefonts: https://github.com/powerline/fonts (Arch linux -> AUR)
 URxvt*font:                     xft:Roboto Mono for Powerline:pixelsize=15:antialias=true:hinting=false
