@@ -9,6 +9,7 @@ ZSH=/usr/share/oh-my-zsh/
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
+# Don't try to display a powerfont theme in a tty
 if [[ $TERM == "linux" ]] || [[ $TERM == "screen" ]] ; then
     ZSH_THEME="gentoo"
 else
