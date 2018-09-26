@@ -5,11 +5,7 @@ PATH=$PATH:~/.gem/ruby/2.5.0/bin:$HOME/bin
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
-# Don't try to display a powerfont theme in a tty
+# Don't try to display a powerlinefont theme in a tty
 if [[ $TERM == "linux" ]] || [[ $TERM == "screen" ]] ; then
     ZSH_THEME="gentoo"
 else
@@ -62,9 +58,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   last-working-dir
@@ -76,18 +69,6 @@ plugins=(
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -95,15 +76,10 @@ plugins=(
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # AareGuru Autocompletion
-#source <(aareguru --completion-script-zsh)
+# source <(aareguru --completion-script-zsh)
 
 # Golang
 export GOPATH=$HOME/go
-
-# Cloudscale Terraform Shizzle ma whizzle
-#export CLOUDSCALE_TOKEN="xmcb6t66var47voridvwkqjsfqcvuuef"
-#export CLOUDSCALE_TOKEN="g3jw5o5zaewj5ctn5gyej633l6qlbm5v"
-#export CLOUDSCALE_TOKEN="ktmj7q4h3ezpxzcunlitptgyerukwall"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -111,8 +87,6 @@ export GOPATH=$HOME/go
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias cat="lolcat"
 alias lsblk="lsblk -o +LABEL"
 alias ip="ip -c"
