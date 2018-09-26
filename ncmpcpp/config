@@ -1,3 +1,12 @@
+################################################
+# _ __   ___ _ __ ___  _ __   ___ _ __  _ __   #
+#| '_ \ / __| '_ ` _ \| '_ \ / __| '_ \| '_ \  #
+#| | | | (__| | | | | | |_) | (__| |_) | |_) | #
+#|_| |_|\___|_| |_| |_| .__/ \___| .__/| .__/  #
+#                     | |        | |   | |     #
+#                     |_|        |_|   |_|     #
+################################################
+
 mpd_music_dir = "/home/aaron/Music"
 mpd_crossfade_time = "5"
 
@@ -46,4 +55,3 @@ statusbar_color = "cyan"
 alternative_ui_separator_color = "black"
 active_column_color = "cyan"
 window_border_color = "white"
-#  vim: set ts=2 sw=2 tw=0 :
