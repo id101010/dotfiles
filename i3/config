@@ -269,7 +269,7 @@ exec --no-startup-id compton -cCGfb -m1 -D3 --xrender-sync --xrender-sync-fence
 exec --no-startup-id urxvtd -q -f -o
 
 # less eye pain
-#exec --no-startup-id redshift
+exec --no-startup-id redshift
 
 # no beep!
 exec --no-startup-id xset b off
