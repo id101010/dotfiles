@@ -7,11 +7,6 @@
 "     \/   |_____|_|  |_|_|  \___|  "
 "                                   "
 """""""""""""""""""""""""""""""""""""
-" Install powerline fonts and configure your 
-" terminal emulator to use them.
-" -> https://github.com/powerline/fonts "
-" -> Arch linux AUR: powerline-fonts-git
-"
 
 set nocompatible
 filetype off
@@ -34,31 +29,12 @@ endif
 " Start Vundle stuff "
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    
     " A pretty statusline, bufferline integration "
     Plugin 'itchyny/lightline.vim'
+    " Bufferline plugin "
     Plugin 'bling/vim-bufferline'
-    
-    " <Tab> everything! "
-    "Plugin 'ervandew/supertab'
-    
     " Glorious colorscheme "
     Plugin 'nanotech/jellybeans.vim'
-    
-    " Super easy commenting, toggle comments etc "
-    "Plugin 'scrooloose/nerdcommenter'
-    
-    " Autoclose
-    "Plugin 'Townk/vim-autoclose'
-    
-    " Git wrapper inside Vim "
-    "Plugin 'tpope/vim-fugitive'
-    
-    "Handle surround chars like "
-    "Plugin 'tpope/vim-surround'
-    
-    " Vim signs (:h signs) for modified lines based off VCS (e.g. Git) "
-    "Plugin 'mhinz/vim-signify'
 " Finish Vundle stuff "
 call vundle#end()
 
@@ -71,18 +47,6 @@ endif
 filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""
-"  Lightline (statusline) configuration "
-"""""""""""""""""""""""""""""""""""""""""
-"let g:lightline = {
-"      \ 'colorscheme': 'default',
-"      \ 'component': {
-"      \   'readonly': '%{&readonly?"":""}',
-"      \ },
-"      \ 'separator': { 'left': '', 'right': ''  },
-"      \ 'subseparator': { 'left': '', 'right': ''  }
-"      \ }
-"
-"""""""""""""""""""""""""""""""""""""""""
 "          Misc configurations          "
 """""""""""""""""""""""""""""""""""""""""
 
@@ -90,7 +54,7 @@ filetype plugin indent on
 set cindent
 set scrolloff=4
 
-"T abstop, Shiftwith and replace tabs with spaces but not in makefiles "
+" Tabstop, Shiftwith and replace tabs with spaces but not in makefiles "
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -126,4 +90,3 @@ set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below th
 
 "Automaticly reread a file, if file has changed"
 set autoread
-
