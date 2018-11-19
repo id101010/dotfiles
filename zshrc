@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH=$PATH:~/.gem/ruby/2.5.0/bin:$HOME/bin
+PATH=$PATH:~/.cargo/bin/:~/go/:$HOME/bin
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -49,14 +49,9 @@ DISABLE_AUTO_UPDATE="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# Timestamps in zsh history
 HIST_STAMPS="mm/dd/yyyy"
 HIST_IGNORE_DUPS="true"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
@@ -68,31 +63,12 @@ plugins=(
   gpg-agent
 )
 
-# User configuration
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# AareGuru Autocompletion
-# source <(aareguru --completion-script-zsh)
-
-# Golang
-export GOPATH=$HOME/go
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-#alias cat="lolcat"
+# Aliases
 alias lsblk="lsblk -o +LABEL"
 alias ip="ip -c"
 alias showip="ip --brief a"
 
+# ZSH cache dir config
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
