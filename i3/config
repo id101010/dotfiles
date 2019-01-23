@@ -284,4 +284,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst -conf ~/.dunstrc
 
 # wallpapers
-exec --no-startup-id feh --bg-fill ~/.wallpapers/puzzle2.png
+exec --no-startup-id feh --bg-fill ~/.wallpapers/linus.png
