@@ -263,7 +263,7 @@ for_window [class="Firefox"]        border none
 #############################################
 
 # composite manager
-exec --no-startup-id compton -cCGfb -m1 -D3 --xrender-sync --xrender-sync-fence
+exec --no-startup-id compton -b ~/.config/compton.conf
 
 # terminal daemon
 exec --no-startup-id urxvtd -q -f -o
