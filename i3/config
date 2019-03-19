@@ -70,8 +70,8 @@ bindsym $mod+Shift+x            exec i3lock-fancy-dualmonitor
 #############################################
 
 # start terminal
-#bindsym $mod+Return             exec --no-startup-id urxvt
-bindsym $mod+Return             exec --no-startup-id urxvtc
+#bindsym $mod+Return             exec --no-startup-id urxvtc
+bindsym $mod+Return             exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -266,10 +266,10 @@ for_window [class="Firefox"]        border none
 exec --no-startup-id compton -b ~/.config/compton.conf
 
 # terminal daemon
-exec --no-startup-id urxvtd -q -f -o
+#exec --no-startup-id urxvtd -q -f -o
 
 # less eye pain
-exec --no-startup-id redshift -l 46:7
+#exec --no-startup-id redshift -l 46:7
 
 # no beep!
 exec --no-startup-id xset b off
