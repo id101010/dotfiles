@@ -263,7 +263,7 @@ for_window [class="Firefox"]        border none
 #############################################
 
 # composite manager
-exec --no-startup-id compton -b ~/.config/compton.conf
+exec --no-startup-id compton -b --config ~/.config/compton.conf
 
 # terminal daemon
 #exec --no-startup-id urxvtd -q -f -o
