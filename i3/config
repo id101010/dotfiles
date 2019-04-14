@@ -225,15 +225,17 @@ set $STATUSBACK #FFFFFF50
 bar {
     position                top
     font                    $font
-    i3bar_command           /usr/bin/i3bar
+    i3bar_command           /usr/bin/i3bar -t
     status_command          i3status -c ~/.i3/i3status.conf
     separator_symbol        ""
 
-    # Solarized theme
+    # bar theme
     colors {
         statusline  $STATUSLINE
         background  $STATUSBACK
-        focused_workspace  $STATUSBACK $STATUSBACK $STATUSLINE
+        inactive_workspace $STATUSBACK $STATUSBACK $STATUSLINE
+        active_workspace   $STATUSBACK $STATUSBACK $STATUSLINE
+        focused_workspace  $STATUSLINE $STATUSLINE $STATUSBACK
   }
 }
 
