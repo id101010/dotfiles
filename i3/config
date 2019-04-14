@@ -219,6 +219,9 @@ client.urgent           $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $B
 #                 i3-bar                    #
 #############################################
 
+set $STATUSLINE #00000050
+set $STATUSBACK #FFFFFF50
+
 bar {
     position                top
     font                    $font
@@ -228,15 +231,9 @@ bar {
 
     # Solarized theme
     colors {
-        statusline  $LIGHTBLUE
-        background  $BACKGROUND
-        separator   $MAGENTA
-
-        # name             #border     #bg         #text
-        focused_workspace  $LIGHTBLUE  $BACKGROUND $LIGHTBLUE
-        active_workspace   $BACKGROUND $BACKGROUND $LIGHTBLUE
-        inactive_workspace $BACKGROUND $BACKGROUND $LIGHTBLUE
-        urgent_workspace   $BACKGROUND $BACKGROUND $LIGHTBLUE
+        statusline  $STATUSLINE
+        background  $STATUSBACK
+        focused_workspace  $STATUSBACK $STATUSBACK $STATUSLINE
   }
 }
 
