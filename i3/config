@@ -219,8 +219,20 @@ client.urgent           $BACKGROUND  $BACKGROUND   $BACKGROUND   $GREEN       $B
 #                 i3-bar                    #
 #############################################
 
-set $STATUSLINE #00000050
-set $STATUSBACK #FFFFFF50
+# Workspace symbol colors
+set $BORDER_ACTIVE      #00000050
+set $BORDER_INACTIVE    #00000050
+set $BORDER_FOCUSED     #FFFFFF50
+set $TEXT_ACTIVE        #FFFFFFFF
+set $TEXT_INACTIVE      #AAAAAAFF
+set $TEXT_FOCUSED       #00000050
+set $BG_ACTIVE          #00000050
+set $BG_INACTIVE        #00000000
+set $BG_FOCUSED         #88888850
+
+# Color ouf statusline background and text
+set $BG_STATUS  #00000000
+set $COL_STATUS #FFFFFFFF
 
 bar {
     position                top
@@ -231,11 +243,12 @@ bar {
 
     # bar theme
     colors {
-        statusline  $STATUSLINE
-        background  $STATUSBACK
-        inactive_workspace $STATUSBACK $STATUSBACK $STATUSLINE
-        active_workspace   $STATUSBACK $STATUSBACK $STATUSLINE
-        focused_workspace  $STATUSLINE $STATUSLINE $STATUSBACK
+        statusline  $COL_STATUS
+        background  $BG_STATUS
+        # name             border           background   text
+        inactive_workspace $BORDER_INACTIVE $BG_INACTIVE $TEXT_INACTIVE
+        active_workspace   $BORDER_ACTIVE   $BG_ACTIVE   $TEXT_ACTIVE
+        focused_workspace  $BORDER_FOCUSED  $BG_FOCUSED  $TEXT_FOCUSED
   }
 }
 
@@ -251,11 +264,8 @@ for_window [class="Gedit"]          floating enable
 for_window [class="teamspeak3"]     floating enable
 
 # 0px Border 
-#for_window [class="chrome"]         border none
+for_window [class="chrome"]         border none
 for_window [class="Firefox"]        border none
-
-# 1px Border
-#for_window [class="URxvt" ]         border 1pixel
 
 #############################################
 #            auto start with i3             #
@@ -263,24 +273,17 @@ for_window [class="Firefox"]        border none
 
 # composite manager
 exec --no-startup-id compton -b --config ~/.config/compton.conf
-
 # terminal daemon
 #exec --no-startup-id urxvtd -q -f -o
-
 # less eye pain
 #exec --no-startup-id redshift -l 46:7
-
 # no beep!
 exec --no-startup-id xset b off
-
 # Nextcloud Sync
 exec --no-startup-id nextcloud
-
 # nm-applet
 exec --no-startup-id nm-applet
-
 # dunst for notifications and volnoti daemon
 exec --no-startup-id dunst -conf ~/.dunstrc
-
 # wallpapers
 exec --no-startup-id feh --bg-fill ~/.wallpapers/linus.png
