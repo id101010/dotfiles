@@ -228,7 +228,7 @@ set $TEXT_INACTIVE      #AAAAAAFF
 set $TEXT_FOCUSED       #00000050
 set $BG_ACTIVE          #00000050
 set $BG_INACTIVE        #00000000
-set $BG_FOCUSED         #88888850
+set $BG_FOCUSED         #FFFFFF80
 
 # Color ouf statusline background and text
 set $BG_STATUS  #00000000
