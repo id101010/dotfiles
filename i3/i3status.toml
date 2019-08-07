@@ -1,5 +1,16 @@
-#icons = "material"
-theme = "slick"
+[theme]
+name = "slick"
+
+[icons]
+name = "awesome"
+
+[icons.overrides]
+time = "  "
+cpu = "  "
+volume_full   = "  "
+volume_half   = "  "
+volume_empty  = "  "
+volume_muted  = "  "
 
 [[block]]
 block = "pacman"
@@ -21,12 +32,12 @@ info_type = "available"
 unit = "GB"
 interval = 20
 
-[[block]]
-block = "music"
-player = "spotify"
-max_width = 10
-marquee_speed = 0.1
-marquee_interval = 5
+#[[block]]
+#block = "music"
+#player = "spotify"
+#max_width = 10
+#marquee_speed = 0.1
+#marquee_interval = 5
 
 [[block]]
 block = "net"
