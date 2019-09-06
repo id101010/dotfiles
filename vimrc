@@ -87,6 +87,8 @@ set t_Co=256
 set laststatus=2        " Always display the statusline in all windows
 set showtabline=2       " Always display the tabline, even if there is only one tab
 set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set colorcolumn=80
+set textwidth=80
 
 "Automaticly reread a file, if file has changed"
 set autoread
