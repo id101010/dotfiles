@@ -43,6 +43,7 @@ bindkey "^[l" forward-word
 alias lsblk="lsblk -o +LABEL"
 alias ip="ip -c"
 alias showip="ip --brief a"
+alias ssh='TERM=xterm ssh'
 
 # ZSH cache dir config
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
