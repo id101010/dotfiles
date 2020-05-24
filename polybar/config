@@ -1,0 +1,189 @@
+##
+# Variables
+##
+[colors]
+background            = #202020
+foreground            = #d0d0d0
+cursor                = #d0d0d0
+selection_background  = #303030
+selection_foreground  = #202020
+color0                = #151515
+color8                = #505050
+color1                = #ac4142
+color9                = #ac4142
+color2                = #7e8d50
+color10               = #7e8d50
+color3                = #e5b566
+color11               = #e5b566
+color4                = #6c99ba
+color12               = #6c99ba
+color5                = #9e4e85
+color13               = #9e4e85
+color6                = #7dd5cf
+color14               = #7dd5cf
+color7                = #d0d0d0
+color15               = #f5f5f5
+
+##
+# Bars
+##
+[bar/main]
+width = 100%
+height = 19
+fixed-center = false 
+background = ${colors.background}
+foreground = ${colors.foreground}
+font-0 = DejaVuSansMono Nerd Font:pixelsize=12;3
+font-1 = Noto Sans Symbols2:pixelsize=10;3
+tray-position = right
+tray-background = ${colors.background}
+tray-padding = 1
+
+modules-left = i3
+modules-center = 
+modules-right = AR_TEMP temperature AR_DATE date
+
+##
+# Glyphs
+##
+[module/AR_LEFT]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.color4}
+content-background = ${colors.background}
+
+[module/AR_RIGHT]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.selection_background)
+content-background = ${colors.background}
+
+[module/AR_TEMP]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.selection_background}
+content-background = ${colors.color4}
+
+[module/AR_DATE]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.color4}
+content-background = ${colors.selection_background}
+
+##
+# Modules
+##
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-font = 1
+format-prefix-foreground = ${colors.color15}
+format-prefix-background = ${colors.violet}
+label-layout = %layout%
+label-layout-font = 1
+label-layout-foreground = ${colors.color15}
+label-layout-background = ${colors.violet}
+label-indicator-background = ${colors.violet}
+
+[module/i3index]
+type = internal/i3
+format = <label-state>
+label-focused = "%name%"
+label-focused-foreground = ${colors.background}
+label-visible = "%name%"
+label-visible-foreground = ${colors.background}
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = false
+enable-click = true 
+enable-scroll = false
+ws-icon-0 = 10;0[]
+ws-icon-1 = 1;1
+ws-icon-2 = 2;2
+ws-icon-3 = 3;3
+ws-icon-4 = 4;4
+ws-icon-5 = 5;5
+ws-icon-6 = 6;6
+ws-icon-7 = 7;7
+ws-icon-8 = 8;8
+ws-icon-9 = 9;9
+ws-icon-default =
+pin-workspaces = false
+label-mode = "%mode%"
+label-mode-background = ${colors.background}
+label-focused = " %icon% %{F#6c99ba B#202020}%{F- B-}"
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.color4}
+label-unfocused = " %icon% "
+label-unfocused-foreground = ${colors.cursor}
+label-unfocused-background = ${colors.background}
+label-visible = " %icon% "
+label-visible-foreground = ${colors.cursor}
+label-visible-background = ${colors.background}
+label-urgent = " %icon% "
+label-urgent-foreground = ${colors.cursor}
+label-urgent-background = ${colors.background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " CPU "
+format-prefix-foreground = ${colors.color0}
+format-prefix-background = ${colors.background}
+label = %percentage%%
+label-foreground = ${colors.color0}
+label-background = #029dff
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " MEM "
+format-prefix-foreground = ${colors.color0}
+format-prefix-background = #027dff
+label = %gb_used%
+label-foreground = ${colors.color0}
+label-background = ${colors.background}
+
+[module/volume]
+type = internal/alsa
+; mapping = true
+format-volume = <ramp-volume><label-volume>
+label-volume = "%percentage%% "
+label-volume-foreground = ${colors.color0}
+label-volume-background = #02bdff
+label-muted = "  
+
+# Temperature
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <ramp><label>
+label = "%temperature-c%"
+label-foreground = ${colors.cursor}
+label-background = ${colors.selection_background}
+label-warn-foreground = ${colors.color1}
+ramp-foreground = ${colors.cursor}
+ramp-background = ${colors.selection_background}
+ramp-0 = "  "
+ramp-1 = "  "
+ramp-2 = "  "
+ramp-3 = "  "
+ramp-4 = "  "
+
+# Date
+[module/date]
+type = internal/date
+interval = 1
+date = "  %d.%m.%y"
+time= "%H:%M:%S "
+label = %date% %time%
+label-foreground = ${colors.background}
+label-background = ${colors.color4}
