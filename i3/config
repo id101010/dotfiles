@@ -27,7 +27,6 @@ new_window pixel
 
 # focus follows mouse
 focus_follows_mouse no
-
 # border
 new_window pixel 3
 
@@ -39,14 +38,9 @@ gaps outer 10
 #              Script Section               #
 #############################################
 
-# 
+#
 # "xev" and "showkeys" can be usefull to determine the keycodes.
-# 
-
-# sound softkeys management
-bindsym XF86AudioRaiseVolume    exec ~/.i3/util/volnotid.sh down
-bindsym XF86AudioLowerVolume    exec ~/.i3/util/volnotid.sh up
-bindsym XF86AudioMute           exec ~/.i3/util/volnotid.sh mute
+#
 
 # display brightness management
 bindsym XF86MonBrightnessUp     exec "xbacklight +10"
@@ -62,8 +56,6 @@ bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
 bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
 
 # start dmenu-launcher
-#bindsym $mod+d                   exec dmenu_run
-#bindsym $mod+d                  exec ~/.config/i3/util/i3dmenu-wrapper.sh
 bindsym $mod+d                  exec rofi -show drun -theme glue_pro_blue -font "mono 10"
 
 # lock i3 with i3lock
@@ -75,8 +67,6 @@ bindsym $mod+Shift+x            exec i3lock -c 000000
 
 # start terminal
 bindsym $mod+Return             exec --no-startup-id kitty
-#bindsym $mod+Return             exec --no-startup-id termite
-#bindsym $mod+Return             exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -137,7 +127,14 @@ bindsym $mod+r                  mode "resize"
 # scratchpad
 bindsym $mod+y                  scratchpad show
 bindsym $mod+x                  move scratchpad
-    
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
 #############################################
 #             Workspace & Tags              #
 #############################################
@@ -186,32 +183,25 @@ mode "resize" {
 #                 Colors                    #
 #############################################
 
-set $BRD_FOC #1c5b98
-set $BRD_UNF #ffffff80
-set $BRD_URG #b0cc54
+# primary gruvbox colorscheme colors
+set $bg       #282828
+set $fg       #ebdbb2
+set $red      #cc241d
+set $green    #98971a
+set $yellow   #d79921
+set $blue     #458588
+set $purple   #b16286
+set $aqua     #689d68
+set $gray     #a89984
+set $darkgray #1d2021
 
-set $BG_FOC #1c5b98
-set $BG_UNF #ffffff80
-set $BG_URG #ffffff80
+# workspace config
+# class                 border    backgr    text      indicator child_border
+client.focused          $blue     $blue     $darkgray $green   $darkgray
+client.focused_inactive $darkgray $darkgray $yellow   $green   $darkgray
+client.unfocused        $darkgray $darkgray $yellow   $green   $darkgray
+client.urgent           $red      $red      $white    $red      $red
 
-set $TXT_FOC #ffffff
-set $TXT_UNF #ffffff
-set $TXT_URG #ffffff
-
-set $IND_FOC #b0cc54
-set $IND_UNF #b0cc54
-set $IND_URG #b0cc54
-
-set $CBD_FOC #1c5b98
-set $CBD_UNF #ffffff80
-set $CBD_URG #b0cc54
-
-# name                   #border  #backgr #text    #indic   #child_border
-client.focused           $BRD_FOC $BG_FOC $TXT_FOC $IND_FOC $CBD_FOC
-client.unfocused         $BRD_UNF $BG_UNF $TXT_UNF $IND_UNF $CBD_UNF
-client.focused_inactive  $BRD_UNF $BG_UNF $TXT_UNF $IND_UNF $CBD_UNF
-client.urgent            $BRD_URG $BG_URG $TXT_URG $IND_URG $CBF_URG
-client.background        #ffffff
 
 #############################################
 #                 i3-bar                    #
@@ -220,15 +210,15 @@ client.background        #ffffff
 bar {
     font $font
     position top
-    status_command /usr/local/bin/i3status-rs ~/.config/i3status/i3status.toml
+    status_command /usr/bin/i3status-rs ~/.config/i3status/i3status.toml
     colors {
-        separator #666666
-        background #222439
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
+        background #222439 # -> BG of Wallpaper for fake transparency
+        statusline $yellow
+        # class              border     backgr.   text
+        focused_workspace    $darkgray  $fg       $darkgray
+        inactive_workspace   $darkgray  $darkgray $fg
+        active_workspace     $darkgray  $darkgray $fg
+        urgent_workspace     $red       $red      $fg
     }
 }
 
@@ -243,9 +233,9 @@ for_window [class="GParted"]        floating enable
 for_window [class="Gedit"]          floating enable
 for_window [class="teamspeak3"]     floating enable
 
-# 0px Border 
+# 0px Border
 for_window [class="chrome"]         border none
-for_window [class="Firefox"]        border none
+for_window [class="firefox"]        border none
 
 #############################################
 #            auto start with i3             #
@@ -254,10 +244,11 @@ for_window [class="Firefox"]        border none
 # composite manager
 exec --no-startup-id compton -b --config ~/.config/compton.conf
 # less eye pain
-exec --no-startup-id redshift -l 46:7
+#exec --no-startup-id redshift -l 46:7
 # no beep!
 exec --no-startup-id xset b off
-# dunst for notifications and volnoti daemon
-exec --no-startup-id dunst -conf /home/aaron/.config/dunst/dunstrc
 # wallpaper
 exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpaper.jpg
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
