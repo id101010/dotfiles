@@ -185,6 +185,11 @@ mode "resize" {
 
 # primary gruvbox colorscheme colors
 set $bg       #282828
+set $bg0      #282828
+set $bg1      #3c3836
+set $bg2      #504945
+set $bg3      #665c54
+set $bg4      #7c6f64
 set $fg       #ebdbb2
 set $red      #cc241d
 set $green    #98971a
@@ -197,11 +202,10 @@ set $darkgray #1d2021
 
 # workspace config
 # class                 border    backgr    text      indicator child_border
-client.focused          $blue     $blue     $darkgray $green   $darkgray
-client.focused_inactive $darkgray $darkgray $yellow   $green   $darkgray
-client.unfocused        $darkgray $darkgray $yellow   $green   $darkgray
+client.focused          $blue     $blue     $darkgray $green    $bg4
+client.focused_inactive $darkgray $darkgray $yellow   $green    $darkgray
+client.unfocused        $darkgray $darkgray $yellow   $green    $darkgray
 client.urgent           $red      $red      $white    $red      $red
-
 
 #############################################
 #                 i3-bar                    #
