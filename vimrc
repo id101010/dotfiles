@@ -1,5 +1,12 @@
 set nocompatible
 
+" Pluigin installation using vim-plug "
+call plug#begin('~/.vim/plugged')
+  Plug 'morhetz/gruvbox'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
 " Tabstop, Shiftwith and replace tabs with spaces but not in makefiles "
 set tabstop=2
 set shiftwidth=2
