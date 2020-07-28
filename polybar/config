@@ -182,7 +182,7 @@ ramp-4 = "  "
 [module/date]
 type = internal/date
 interval = 1
-date = "  %d.%m.%y"
+date = "   %d.%m.%y"
 time= "%H:%M:%S "
 label = %date% %time%
 label-foreground = ${colors.background}
