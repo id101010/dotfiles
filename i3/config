@@ -247,7 +247,7 @@ for_window [class="firefox"]        border none
 #############################################
 
 # composite manager
-exec --no-startup-id compton -b --config ~/.config/compton.conf
+exec --no-startup-id picom -b --config ~/.config/picom.conf
 # less eye pain
 #exec --no-startup-id redshift -l 46:7
 # no beep!
