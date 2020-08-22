@@ -13,7 +13,7 @@
 #############################################
 
 # font
-set $font "pango:DejaVu Sans Mono for Powerline 10"
+set $font "pango:Source Code Pro for Powerline 10"
 font $font
 
 # floating modifier
@@ -67,7 +67,7 @@ bindsym $mod+Shift+x            exec i3lock -c 000000
 #############################################
 
 # start terminal
-bindsym $mod+Return             exec --no-startup-id kitty
+bindsym $mod+Return             exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q            kill
