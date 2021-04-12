@@ -13,7 +13,9 @@
 #############################################
 
 # font
-set $font "pango:Source Code Pro for Powerline 10"
+#set $font "pango:DejaVu Sans Mono for Powerline 10"
+#set $font "pango:Source Code Pro for Powerline 10"
+set $font "pango:MesloLGS NF 10"
 font $font
 
 # floating modifier
@@ -22,14 +24,11 @@ font $font
 set $mod mod4
 floating_modifier $mod
 
-# remove window decorations
-new_window pixel
-
 # focus follows mouse
 focus_follows_mouse no
 
-# border
-new_window pixel 3
+# no window decorations
+new_window pixel 1
 
 # gaps
 gaps inner 10
@@ -48,7 +47,7 @@ bindsym XF86MonBrightnessUp     exec "xbacklight +10"
 bindsym XF86MonBrightnessDown   exec "xbacklight -10"
 
 # webcam
-bindym XF86WebCam               exec /bin/cheese
+bindsym XF86WebCam               exec /bin/cheese
 
 # lenovo Key wifi-menu
 bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
@@ -67,7 +66,8 @@ bindsym $mod+Shift+x            exec i3lock -c 000000
 #############################################
 
 # start terminal
-bindsym $mod+Return             exec --no-startup-id alacritty
+#bindsym $mod+Return             exec --no-startup-id alacritty
+bindsym $mod+Return             exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -130,11 +130,10 @@ bindsym $mod+y                  scratchpad show
 bindsym $mod+x                  move scratchpad
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute        exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute        exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #############################################
 #             Workspace & Tags              #
@@ -184,7 +183,7 @@ mode "resize" {
 #                 Colors                    #
 #############################################
 
-# primary gruvbox colorscheme colors
+# primary gruvbox colorscheme
 set $bg       #282828
 set $bg0      #282828
 set $bg1      #3c3836
@@ -198,15 +197,16 @@ set $yellow   #d79921
 set $blue     #458588
 set $purple   #b16286
 set $aqua     #689d68
-set $gray     #a89984
-set $darkgray #1d2021
+set $grey     #a89984
+set $darkgrey #1d2021
+set $white    #000000
 
 # workspace config
-# class                 border    backgr    text      indicator child_border
-client.focused          $blue     $blue     $darkgray $green    $bg4
-client.focused_inactive $darkgray $darkgray $yellow   $green    $darkgray
-client.unfocused        $darkgray $darkgray $yellow   $green    $darkgray
-client.urgent           $red      $red      $white    $red      $red
+# class                  border    backgr    text   indicator child_border
+client.focused           $bg2      $bg2      $bg    $bg4      $bg2
+client.focused_inactive  $darkgrey $darkgrey $bg2   $bg       $darkgrey
+client.unfocused         $darkgrey $darkgrey $bg2   $bg       $darkgrey
+client.urgent            $red      $bg2      $red   $bg       $red
 
 #############################################
 #                 i3-bar                    #
@@ -215,15 +215,15 @@ client.urgent           $red      $red      $white    $red      $red
 bar {
     font $font
     position top
-    status_command /usr/bin/i3status-rs ~/.config/i3status/i3status.toml
+    status_command /home/aaron/.cargo/bin/i3status-rs ~/.config/i3status/i3status.toml
     colors {
         background #222439 # -> BG of Wallpaper for fake transparency
         statusline $yellow
-        # class              border     backgr.   text
-        focused_workspace    $darkgray  $gray       $darkgray
-        inactive_workspace   $darkgray  $darkgray $fg
-        active_workspace     $darkgray  $darkgray $fg
-        urgent_workspace     $red       $red      $fg
+        # class              border     backgr    text
+        focused_workspace    $darkgrey  $grey     $darkgrey
+        inactive_workspace   $darkgrey  $darkgrey $grey
+        active_workspace     $darkgrey  $darkgrey $grey
+        urgent_workspace     $red       $darkgrey $red
     }
 }
 
@@ -232,11 +232,8 @@ bar {
 #############################################
 
 # always floating
-for_window [class="Thunar"]         floating enable
-for_window [class="Nautilus"]       floating enable
-for_window [class="GParted"]        floating enable
 for_window [class="Gedit"]          floating enable
-for_window [class="teamspeak3"]     floating enable
+for_window [class="Teamspeak3"]     floating enable
 
 # 0px Border
 for_window [class="chrome"]         border none
@@ -249,11 +246,12 @@ for_window [class="firefox"]        border none
 # composite manager
 exec --no-startup-id picom -b --config ~/.config/picom.conf
 # less eye pain
-#exec --no-startup-id redshift -l 46:7
+exec --no-startup-id redshift -l 46.95:7.45
 # no beep!
 exec --no-startup-id xset b off
 # wallpaper
-exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpaper.jpg
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
+exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpapers/wallpaper.png
+# syncthing
+exec --no-startup-id syncthing --no-browser
+# use lockscreen as screensaver (needs xss-lock installed)
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
