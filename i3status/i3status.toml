@@ -4,76 +4,65 @@
   name = "gruvbox-dark"
 
 [icons]
-  name = "awesome"
+  name = "awesome5"
 
 [icons.overrides]
-  time = "  "
   cpu = "  "
-
-[[block]]
-  block = "pacman"
-  interval = 600
 
 [[block]]
   block = "disk_space"
   path = "/"
-  alias = "/"
-  info_type = "available"
+  info_type = "free"
+  format = "{icon} {free}"
   unit = "GB"
-  interval = 20
 
 [[block]]
   block = "disk_space"
-  path = "/home"
-  alias = "/home"
+  path = "/media/Data1"
   info_type = "available"
+  format = "{icon} {free}"
+  unit = "TB"
+
+[[block]]
+  block = "disk_space"
+  path = "/media/Data2"
+  info_type = "available"
+  format = "{icon} {free}"
+  unit = "TB"
+
+[[block]]
+  block = "disk_space"
+  path = "/media/ssdcache"
+  info_type = "free"
+  format = "{icon} {free}"
   unit = "GB"
-  interval = 20
 
 [[block]]
   block = "net"
-  device = "enp0s31f6"
-  ssid = false
-  ip = true
-  speed_up = false
-  graph_up = false
-  speed_down = false
-  graph_down = false
-  interval = 1
-
-[[block]]
-  block = "net"
-  device = "wlp1s0"
-  ssid = true
-  ip = true
-  speed_up = false
-  graph_up = false
-  speed_down = false
-  graph_down = false
+  device = "enp35s0"
+  format = "{ip}"
   interval = 1
 
 [[block]]
   block = "cpu"
   interval = 1
-  format = "{barchart} {utilization}% {frequency}GHz"
-
-[[block]]
-  block = "battery"
-  interval = 10
-  format = "{percentage}% {time}"
+  format = "{barchart} {utilization}% {frequency}"
 
 [[block]]
   block = "sound"
+  step_width = 1
 
 [[block]]
-  block = "backlight"
+  block = "music"
+  buttons = ["play", "next"]
 
 [[block]]
   block = "temperature"
   collapsed = false
   interval = 10
-  format = "{average}°C"
+  format = "{min} min, {max} max, {average} avg"
   chip = "*-isa-*"
+  inputs = ["CPUTIN", "SYSTIN"]
 
 [[block]]
   block = "time"
