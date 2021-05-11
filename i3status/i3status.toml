@@ -10,6 +10,11 @@
   cpu = "  "
 
 [[block]]
+  block = "custom"
+  command = "if [[ $(date +'%H') < 16 ]]; then; echo '☕'; else; echo '🍺'; fi"
+  interval = 10
+
+[[block]]
   block = "disk_space"
   path = "/"
   info_type = "free"
@@ -39,14 +44,20 @@
 
 [[block]]
   block = "net"
-  device = "enp35s0"
+  device = "enp7s0"
+  format = "{ip}"
+  interval = 1
+
+[[block]]
+  block = "net"
+  device = "wlp5s0"
   format = "{ip}"
   interval = 1
 
 [[block]]
   block = "cpu"
   interval = 1
-  format = "{barchart} {utilization}% {frequency}"
+  format = "{barchart} {utilization} {frequency}"
 
 [[block]]
   block = "sound"
