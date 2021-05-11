@@ -66,8 +66,8 @@ bindsym $mod+Shift+x            exec i3lock -c 000000
 #############################################
 
 # start terminal
-#bindsym $mod+Return             exec --no-startup-id alacritty
-bindsym $mod+Return             exec --no-startup-id kitty
+#bindsym $mod+Return             exec --no-startup-id kitty
+bindsym $mod+Return             exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q            kill
@@ -244,9 +244,9 @@ for_window [class="firefox"]        border none
 #############################################
 
 # composite manager
-exec --no-startup-id picom -b --config ~/.config/picom.conf
+#exec --no-startup-id picom -b --config ~/.config/picom.conf
 # less eye pain
-exec --no-startup-id redshift -l 46.95:7.45
+exec --no-startup-id redshift -l 46.95:7.45 -t 6500:3000
 # no beep!
 exec --no-startup-id xset b off
 # wallpaper
