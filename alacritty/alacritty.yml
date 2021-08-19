@@ -15,18 +15,18 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Source Code Pro for Powerline
+    family: Source Code Pro
     #    family: DejaVu Sans Mono for Powerline
     style: regular
   # Bold font face
   bold:
-    family: Source Code Pro for Powerline
+    family: Source Code Pro
     style: bold
   # Italic font face
   italic:
-    family: Source Code Pro for Powerline
+    family: Source Code Pro
     style: italic
-  size: 9
+  size: 8
 
 # Colors (Gruvbox dark)
 colors:
@@ -74,6 +74,11 @@ working_directory: None
 
 # url launcher
 mouse:
-  url:
+  hints:
     launcher:
       program: firefox
+
+key_bindings:
+  - { key: B, mods: Command, action: IncreaseFontSize }
+  - { key: N, mods: Command, action: DecreaseFontSize }
+  - { key: M, mods: Command, action: ResetFontSize }
