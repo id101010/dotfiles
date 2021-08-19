@@ -1,12 +1,5 @@
 set nocompatible
 
-" Pluigin installation using vim-plug "
-call plug#begin('~/.vim/plugged')
-  Plug 'morhetz/gruvbox'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
 " Tabstop, Shiftwith and replace tabs with spaces but not in makefiles "
 set tabstop=2
 set shiftwidth=2
@@ -17,6 +10,10 @@ autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
 autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
 autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
+autocmd BufNewFile,BufRead *.py set ft=python ts=4 sw=4 tw=88 et
+
+" automatically load all installed plugins in ~/.vim/pack "
+packloadall
 
 " Syntaxhighlighting, colorscheme, linenumbers "
 syntax on

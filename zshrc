@@ -1,15 +1,15 @@
-# path
-export PATH=/home/aaron/.cargo/bin:$PATH
-
-# Syntax highlighting
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
-source /home/$USER/.oh-my-zsh/oh-my-zsh.sh
-
-# Don't try to display a fancy theme in a tty
-if [[ $TERM == "linux" ]] || [[ $TERM == "screen" ]] || [[ $TERM == "xterm" ]] ; then
+# Dont try to display a fancy theme in a tty
+if [[ $TERM == "linux" ]] || [[ $TERM == "screen" ]]; then
   [[ ! -f ~/.p10k-portable.zsh ]] || source ~/.p10k-portable.zsh
 else
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Move one word left or right using alt
@@ -26,6 +26,9 @@ alias showip="ip --brief a"
 alias ssh='TERM=xterm ssh'
 alias ll="ls -l"
 
+# Lines configured by zsh-newuser-install
+bindkey -e
+
 # History config
 HIST_IGNORE_DUPS="true"
 HIST_STAMPS="mm/dd/yyyy"
@@ -38,22 +41,12 @@ setopt SHARE_HISTORY
 autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
-# oh-my-zsh configs
-DIASBLE_AUTO_TITLE="true"
-DISABLE_AUTO_UPDATE="false"
-UPDATE_ZSH_DAYS=5
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/aaron/.zshrc'
 
-# oh-my-zsh plugins
-#plugins=(
-#  ssh-agent
-#  gpg-agent
-#)
+autoload -Uz compinit
+compinit
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+# End of lines added by compinstall
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

@@ -15,7 +15,7 @@
 # font
 #set $font "pango:DejaVu Sans Mono for Powerline 10"
 #set $font "pango:Source Code Pro for Powerline 10"
-set $font "pango:MesloLGS NF 10"
+set $font "pango:MesloLGS NF 11"
 font $font
 
 # floating modifier
@@ -50,10 +50,10 @@ bindsym XF86MonBrightnessDown   exec "xbacklight -10"
 bindsym XF86WebCam               exec /bin/cheese
 
 # lenovo Key wifi-menu
-bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
+#bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
 
 # jauth two factor authenticator
-bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
+#bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
 
 # start dmenu-launcher
 bindsym $mod+d                  exec rofi -show drun -theme gruvbox-dark-soft -font "mono 10"
@@ -215,7 +215,7 @@ client.urgent            $red      $bg2      $red   $bg       $red
 bar {
     font $font
     position top
-    status_command /home/aaron/.cargo/bin/i3status-rs ~/.config/i3status/i3status.toml
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
         background #222439 # -> BG of Wallpaper for fake transparency
         statusline $yellow
@@ -250,8 +250,8 @@ exec --no-startup-id redshift -l 46.95:7.45 -t 6500:3000
 # no beep!
 exec --no-startup-id xset b off
 # wallpaper
-exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpapers/wallpaper.png
+exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpapers/gentoo.jpg
 # syncthing
 exec --no-startup-id syncthing --no-browser
 # use lockscreen as screensaver (needs xss-lock installed)
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork

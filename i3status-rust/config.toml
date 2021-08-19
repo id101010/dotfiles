@@ -1,0 +1,75 @@
+# vim: ts=2 sw=2 et ft=toml
+
+[theme]
+  name = "gruvbox-dark"
+
+[icons]
+  name = "awesome5"
+
+[icons.overrides]
+  cpu = "  "
+
+[[block]]
+  block = "custom"
+  command = "if [[ $(date +'%H') < 16 ]]; then; echo '☕'; else; echo '🍺'; fi"
+  interval = 10
+
+[[block]]
+  block = "disk_space"
+  path = "/"
+  info_type = "free"
+  format = "{icon} {free}"
+  unit = "GB"
+
+[[block]]
+  block = "net"
+  device = "enp0s31f6"
+  format = "{ip}"
+  interval = 1
+  hide_inactive = true
+
+[[block]]
+  block = "net"
+  device = "enp10s0u1"
+  format = "{ip}"
+  interval = 1
+  hide_missing = true
+  hide_inactive = true
+
+[[block]]
+  block = "net"
+  device = "wlp0s20f3"
+  format = "{ip}"
+  interval = 1
+  hide_missing = true
+  hide_inactive = true
+
+[[block]]
+  block = "cpu"
+  interval = 1
+  format = "{barchart}"
+
+[[block]]
+  block = "sound"
+  step_width = 1
+
+[[block]]
+  block = "music"
+  buttons = ["play", "next"]
+
+[[block]]
+  block = "temperature"
+  collapsed = true
+  interval = 10
+  format = "{min} min, {max} max, {average} avg"
+
+[[block]]
+  block = "battery"
+  interval = 10
+  format = "{percentage} {time}"
+
+[[block]]
+  block = "time"
+  format = "%A %v %T"
+  timezone = "Europe/Zurich"
+  interval = 1
