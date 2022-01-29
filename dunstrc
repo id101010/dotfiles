@@ -9,168 +9,84 @@
 #########################################
 
 [global]
-    # Font
-    font = Roboto 10
-    # Allow a small subset of html markup:
-    markup = yes
-    # The format of the message.
-    format = "%s %p\n%b"
-    # Sort messages by urgency.
-    sort = yes
-    # Show how many messages are currently hidden (because of geometry).
-    indicate_hidden = yes
-    # Alignment of message text.
-    alignment = left
-    # The frequency with wich text that is longer than the notification
-    bounce_freq = 5
-    # Show age of message if message is older than show_age_threshold
-    show_age_threshold = 60
-    # Split notifications into multiple lines if they don't fit
-    word_wrap = no
-    # Ignore newlines '\n' in notifications.
-    ignore_newline = no
-    # The geometry of the window: [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "0x4-50+50"
-    # Shrink window if it's smaller than the width.
-    shrink = yes
-    # The transparency of the window. Range: [0; 100].
-    transparency = 15
-    # Don't remove messages, if the user is idle (no mouse or keyboard input)
-    idle_threshold = 120 
-    # Which monitor should the notifications be displayed on.
-    monitor = 0
-    # Display notification on focused monitor.
-    follow = mouse
-    # Should a notification popped up from history be sticky or timeout
-    sticky_history = yes
-    # Maximum amount of notifications kept in history
-    history_length = 20
-    # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
-    # The height of a single line.
-    line_height = 0
-    # Draw a line of "separator_height" pixel height between two
-    separator_height = 1
-    # Padding between text and separator.
-    padding = 10
-    # Horizontal padding.
-    horizontal_padding = 10
-    # Define a color for the separator.
-    separator_color = auto
-    # Print a notification on startup.
-    startup_notification = false
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
-    # Browser for opening urls in context menu.
-    browser = palemoon
-    # Align icons left/right/off
-    icon_position = left
-    # Paths to default icons.
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
-    # Frame width
-    frame_width = 3
-    # Frame color
-    frame_color = "#2aa198"
+  # Font
+  font = IBM Plex Mono
+  # Allow a small subset of html markup:
+  markup = yes
+  # The format of the message.
+  format = "%s %p\n%b"
+  # Sort messages by urgency.
+  sort = yes
+  # Show how many messages are currently hidden (because of geometry).
+  indicate_hidden = yes
+  # Alignment of message text.
+  alignment = left
+  # Show age of message if message is older than show_age_threshold
+  show_age_threshold = 60
+  # Split notifications into multiple lines if they don't fit
+  word_wrap = no
+  # Ignore newlines '\n' in notifications.
+  ignore_newline = no
+  # Shrink window if it's smaller than the width.
+  shrink = yes
+  # The transparency of the window. Range: [0; 100].
+  transparency = 15
+  # Don't remove messages, if the user is idle (no mouse or keyboard input)
+  idle_threshold = 120 
+  # Which monitor should the notifications be displayed on.
+  monitor = 0
+  # Display notification on focused monitor.
+  follow = mouse
+  # Should a notification popped up from history be sticky or timeout
+  sticky_history = yes
+  # Maximum amount of notifications kept in history
+  history_length = 20
+  # Display indicators for URLs (U) and actions (A).
+  show_indicators = yes
+  # The height of a single line.
+  line_height = 0
+  # Draw a line of "separator_height" pixel height between two
+  separator_height = 1
+  # Padding between text and separator.
+  padding = 10
+  # Horizontal padding.
+  horizontal_padding = 10
+  # Define a color for the separator.
+  separator_color = auto
+  # dmenu path.
+  dmenu = /usr/bin/dmenu -p dunst:
+  # Browser for opening urls in context menu.
+  browser = palemoon
+  # Align icons left/right/off
+  icon_position = left
+  # Paths to default icons.
+  icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+  # Frame width
+  frame_width = 3
 
-[shortcuts]
-    # Close notification.
-    close = mod1+space
-    # Close all notifications.
-    close_all = ctrl+mod1+space
-    # Redisplay last message(s).
-    history = ctrl+mod4+h 
-    # Context menu.
-    context = ctrl+mod1+c
+frame_color = "#d5c4a1"
+separator_color = "#d5c4a1"
 
-[urgency_low]
-    background = "#1c5b98"
-    foreground = "#c9c1c7"
-    timeout = 10
+[base16_low]
+    msg_urgency = low
+    background = "#3c3836"
+    foreground = "#665c54"
 
-[urgency_normal]
-    background = "#1c5b98"
-    foreground = "#c9c1c7"
-    timeout = 10
+[base16_normal]
+    msg_urgency = normal
+    background = "#504945"
+    foreground = "#d5c4a1"
 
-[urgency_critical]
-    background = "#43d5f2"
-    foreground = "#c9c1c7"
-    timeout = 0
+[base16_critical]
+    msg_urgency = critical
+    background = "#fb4934"
+    foreground = "#ebdbb2"
 
-
-# Every section that isn't one of the above is interpreted as a rules to
-# override settings for certain messages.
-# Messages can be matched by "appname", "summary", "body", "icon", "category",
-# "msg_urgency" and you can override the "timeout", "urgency", "foreground",
-# "background", "new_icon" and "format".
-# Shell-like globbing will get expanded.
-#
-# SCRIPTING
-# You can specify a script that gets run when the rule matches by
-# setting the "script" option.
-# The script will be called as follows:
-#   script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-# 
-# NOTE: if you don't want a notification to be displayed, set the format
-# to "".
-# NOTE: It might be helpful to run dunst -print in a terminal in order
-# to find fitting options for rules.
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
-
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
-#[Claws Mail]
-#    appname = claws-mail
-#    category = email.arrived
-#    urgency = normal
-#    background = "#2F899E"
-#    foreground = "#FFA247"
-#
-#[mute.sh]
-#     appname = mute
-#     category = mute.sound
-#     script = mute.sh
-#
-#[JDownloader]
-#    appname = JDownloader
-#    category = JD
-#    background = "#FFA247"
-#    foreground = "#FFFFFF"
-#
-#[newsbeuter]
-#    summary = *Feeds*
-#    background = "#A8EB41"
-#    foreground = "#FFFFFF"
-#
-# vim: ft=cfg
+[spotify]
+  appname = Spotify*
+  format = "<b> Now Playing:</b>\n%s\n%b"
+  background = "#1d2021"
+  foreground = "#ebdbb2"
+  frame_color = "#1db954"
+  timeout = 5
+  script = spotup
