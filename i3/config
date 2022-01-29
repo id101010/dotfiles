@@ -244,13 +244,15 @@ for_window [class="firefox"]        border none
 #############################################
 
 # composite manager
-#exec --no-startup-id picom -b --config ~/.config/picom.conf
+exec --no-startup-id picom -b --config ~/.config/picom.conf
 # less eye pain
 exec --no-startup-id redshift -l 46.95:7.45 -t 6500:3000
+# start notification daemon
+exec --no-startup-id dunst -config ~/.config/dunstrc
 # no beep!
 exec --no-startup-id xset b off
 # wallpaper
-exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpapers/gentoo.jpg
+exec --no-startup-id feh --bg-fill ~/.config/wallpapers/gentoo.jpg
 # syncthing
 exec --no-startup-id syncthing --no-browser
 # use lockscreen as screensaver (needs xss-lock installed)
