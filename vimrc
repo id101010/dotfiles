@@ -4,6 +4,7 @@ filetype plugin indent on
 
 " Pluigin installation using vim-plug "
 call plug#begin('~/.vim/plugged')
+  Plug 'preservim/nerdtree'
   Plug 'morhetz/gruvbox'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -35,6 +36,7 @@ set more " use more
 set title " blank title
 set background=dark " set bg
 set relativenumber " linenumbers
+set number " current line number
 set nowrap " do not wrap long lines per default
 set laststatus=2 " always display the statusline in all windows
 set showtabline=2 " always display the tabline
@@ -48,3 +50,4 @@ set display=lastline " show as much as possible of the last line
 " Airline configs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
