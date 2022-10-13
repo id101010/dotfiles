@@ -1,4 +1,5 @@
-# LinuxDotFiles
+# dotfiles
+
 This repository is part of the ansible-archlinux setup. It contains all my personal linux dotfiles.
 All content is managed by [rcm](https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos).
 
