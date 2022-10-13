@@ -1,5 +1,3 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
 # Environment vars
 env:
   TERM: alacritty
@@ -11,19 +9,18 @@ scrolling:
   # Scrolling distance multiplier.
   multiplier: 3
 
-# Font configuration
 font:
   # Normal (roman) font face
   normal:
-    family: "MesloLGS NF"
+    family: "IBM Plex Mono"
     style: regular
   # Bold font face
   bold:
-    family: "MesloLGS NF"
+    family: "IBM Plex Mono"
     style: bold
   # Italic font face
   italic:
-    family: "MesloLGS NF"
+    family: "IBM Plex Mono"
     style: italic
   size: 11
 
@@ -66,7 +63,8 @@ cursor:
   thickness: 0.15
 
 # Background opacity
-background_opacity: 0.9
+window:
+  opacity: 0.9
 
 # Live config reload (changes require restart)
 live_config_reload: true
@@ -85,6 +83,7 @@ mouse:
       program: firefox
 
 key_bindings:
-- { key: Left, mods: Shift, action: ResetFontSize }
-- { key: Up, mods: Shift, action: IncreaseFontSize }
-- { key: Down, mods: Shift, action: DecreaseFontSize }
+- { key: Left, mods: Control, action: ResetFontSize }
+- { key: Right, mods: Control, action: ResetFontSize }
+- { key: Up, mods: Control, action: IncreaseFontSize }
+- { key: Down, mods: Control, action: DecreaseFontSize }
