@@ -1,9 +1,12 @@
 # dotfiles
 
-This repository is part of the ansible-archlinux setup. It contains all my personal linux dotfiles.
-All content is managed by [rcm](https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos).
+Less is more. This repo contains all my dotfiles for frequently used software.
 
-The ansible setup will install this repo to ~/.dotfiles and rcm will take care
+# how to manage
+
+Personally I use [rcm](https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos) to keep my dotfiles in sync but this repo does not depend on anything.
+
+My ansible-setup will install this repo to ~/.dotfiles and rcm will take care
 of all symlinks. Here are some simple commands to manage your symlinks:
 
 ```bash
