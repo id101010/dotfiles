@@ -9,8 +9,11 @@
 #########################################
 
 [global]
+  # these should be in sync with i3 gaps
+  origin = top-right
+  offset = 10x10
   # Font
-  font = IBM Plex Mono
+  font = IBM Plex Mono 12
   # Allow a small subset of html markup:
   markup = yes
   # The format of the message.
@@ -20,7 +23,7 @@
   # Show how many messages are currently hidden (because of geometry).
   indicate_hidden = yes
   # Alignment of message text.
-  alignment = left
+  alignment = center
   # Show age of message if message is older than show_age_threshold
   show_age_threshold = 60
   # Split notifications into multiple lines if they don't fit
@@ -30,7 +33,7 @@
   # Shrink window if it's smaller than the width.
   shrink = yes
   # The transparency of the window. Range: [0; 100].
-  transparency = 15
+  transparency = 0
   # Don't remove messages, if the user is idle (no mouse or keyboard input)
   idle_threshold = 120 
   # Which monitor should the notifications be displayed on.
@@ -64,7 +67,7 @@
   # Frame width
   frame_width = 3
 
-frame_color = "#d5c4a1"
+frame_color = "#1d2021"
 separator_color = "#d5c4a1"
 
 [base16_low]
