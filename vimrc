@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 
 filetype plugin indent on
 
@@ -8,14 +9,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'Yggdroot/indentLine'
+  Plug 'rust-lang/rust.vim'
+  Plug 'scrooloose/syntastic'
+"  Plug 'dense-analysis/ale'
 call plug#end()
 
 " Autocommands for special files "
-autocmd FileType make set noexpandtab
-autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
-autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
-autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
-autocmd BufNewFile,BufRead *.py set ft=python tabstop=4 shiftwidth=4 softtabstop=4 showtabline=4 expandtab
+autocmd FileType make set noexpandtab " we want tabs in Makefiles
+autocmd BufWritePre * :%s/\s\+$//e " no trailing whitespace
+autocmd BufNewFile,BufRead *.md set ft=markdown tw=79 " markdown
+autocmd BufNewFile,BufRead *.tex set ft=tex tw=79 " latex
+autocmd BufNewFile,BufRead *.py set ft=python tabstop=4 shiftwidth=4 softtabstop=4 showtabline=4 expandtab " Python PEP8
 
 " Syntaxhighlighting, colorscheme, linenumbers "
 syntax on
@@ -46,8 +51,16 @@ set ttyfast " fast rendering
 set encoding=utf8 " use utf8
 set laststatus=2 " always display a status line
 set display=lastline " show as much as possible of the last line
+set updatetime=300 " 300ms update
 
 " Airline configs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
+let g:airline_section_z = "%p%% : \ue0a1:%l/%L: Col:%c"
+
+" Indent indicator configs
+let g:indentLine_enabled = 1
+let g:indentLine_setColors = 2
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┊'
