@@ -15,7 +15,7 @@
 # font
 #set $font "pango:DejaVu Sans Mono for Powerline 10"
 #set $font "pango:Source Code Pro for Powerline 10"
-set $font "pango:MesloLGS NF 11"
+set $font "pango:IBM Plex Mono, FontAwesome 6 Free 11"
 font $font
 
 # floating modifier
@@ -42,24 +42,17 @@ gaps outer 10
 # "xev" and "showkeys" can be usefull to determine the keycodes.
 #
 
-# display brightness management
-bindsym XF86MonBrightnessUp     exec "xbacklight +10"
-bindsym XF86MonBrightnessDown   exec "xbacklight -10"
-
+# display brightness management (laptop)
+bindsym XF86MonBrightnessUp     exec --no-startup-id "xbacklight +10"
+bindsym XF86MonBrightnessDown   exec --no-startup-id "xbacklight -10"
 # webcam
-bindsym XF86WebCam               exec /bin/cheese
-
-# lenovo Key wifi-menu
-#bindsym XF86Launch1             exec urxvt -e sh -c "sudo wifi-menu wlp3s0"
-
-# jauth two factor authenticator
-#bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
-
+bindsym XF86WebCam              exec --no-startup-id "cheese"
+# screenshot
+bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
 # start dmenu-launcher
-bindsym $mod+d                  exec rofi -show drun -theme gruvbox-dark-soft -font "mono 10"
-
+bindsym $mod+d                  exec --no-startup-id rofi -show drun -theme gruvbox-dark-soft -font "mono 10"
 # lock i3 with i3lock
-bindsym $mod+Shift+x            exec i3lock -c 000000
+bindsym $mod+Shift+x            exec --no-startup-id i3lock -c 000000
 
 #############################################
 #                  Keymaps                  #
