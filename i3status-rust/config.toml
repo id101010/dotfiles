@@ -46,7 +46,8 @@ missing_format = ""
 [[block]]
 block = "cpu"
 interval = 1
-format = "$barchart $utilization $frequency"
+format = " $icon $barchart $utilization "
+format_alt = " $icon $frequency { $boost|} "
 
 [[block]]
 block = "memory"
@@ -55,15 +56,15 @@ warning_mem = 80
 critical_mem = 95
 
 [[block]]
+block = "battery"
+format = " $icon $percentage {$time |}"
+
+[[block]]
 block = "temperature"
 interval = 10
 format = " $icon "
 format_alt = " min: $min C, max: $max C, avg: $average C "
 chip = "*-isa-*"
-
-[[block]]
-block = "battery"
-format = " $icon $percentage {$time |}"
 
 [[block]]
 block = "sound"
