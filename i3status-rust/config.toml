@@ -1,79 +1,83 @@
 # vim: ts=2 sw=2 et ft=toml
 
 [theme]
-  name = "gruvbox-dark"
+theme = "gruvbox-dark"
 
 [icons]
-  name = "awesome5"
-
-[icons.overrides]
-  cpu = "  "
+icons = "awesome5"
 
 [[block]]
-  block = "custom"
-  command = "if [[ $(date +'%H') < 16 ]]; then; echo '☕'; else; echo '🍺'; fi"
-  interval = 10
+block = "pacman"
+interval = 600
 
 [[block]]
-  block = "disk_space"
-  path = "/"
-  info_type = "free"
-  format = "{icon} {free}"
-  unit = "GB"
+block = "custom"
+command = "if [[ $(date +'%H') < 16 ]]; then; echo '☕'; else; echo '🍺'; fi"
+interval = 10
 
 [[block]]
-  block = "net"
-  device = "enp0s31f6"
-  format = "{ip}"
-  interval = 1
-  hide_inactive = true
+block = "disk_space"
+path = "/"
+format = "$icon $free"
+info_type = "available"
+interval = 20
 
 [[block]]
-  block = "net"
-  device = "enp10s0u1"
-  format = "{ip}"
-  interval = 1
-  hide_missing = true
-  hide_inactive = true
+block = "net"
+device = "enp0s31f6"
+format = "$icon $ip"
+interval = 1
+missing_format = ""
 
 [[block]]
-  block = "net"
-  device = "wlp0s20f3"
-  format = "{ip}"
-  interval = 1
-  hide_missing = true
-  hide_inactive = true
+block = "net"
+device = "wlp0s20f3"
+format = "$icon $ip"
+interval = 1
+missing_format = ""
 
 [[block]]
-  block = "cpu"
-  interval = 1
-  format = "{barchart}"
+block = "net"
+device = "enp10s0u1"
+format = "$icon $ip"
+interval = 1
+missing_format = ""
 
 [[block]]
-  block = "sound"
-  step_width = 1
+block = "cpu"
+interval = 1
+format = "$barchart $utilization $frequency"
 
 [[block]]
-  block = "music"
-  buttons = ["play", "next"]
+block = "memory"
+interval = 5
+warning_mem = 80
+critical_mem = 95
 
 [[block]]
-  block = "temperature"
-  collapsed = true
-  interval = 10
-  format = "{min} min, {max} max, {average} avg"
+block = "temperature"
+interval = 10
+format = " $icon "
+format_alt = " min: $min C, max: $max C, avg: $average C "
+chip = "*-isa-*"
 
 [[block]]
-  block = "battery"
-  interval = 10
-  format = "{percentage} {time}"
+block = "battery"
+format = " $icon $percentage {$time |}"
+
+[[block]]
+block = "sound"
+format = " $icon { $volume|} "
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
 
 [[block]]
 block = "backlight"
 device = "intel_backlight"
 
 [[block]]
-  block = "time"
-  format = "%A %v %T"
-  timezone = "Europe/Zurich"
-  interval = 1
+block = "time"
+format = " $icon $timestamp.datetime(f:'%a %d.%m.%y %H:%M:%S') "
+timezone = "Europe/Zurich"
+interval = 1
