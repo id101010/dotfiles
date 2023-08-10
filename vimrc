@@ -48,7 +48,6 @@ set showtabline=2 " always display the tabline
 set hlsearch " highlight after search
 set incsearch " highlight while searching
 set ttyfast " fast rendering
-set encoding=utf8 " use utf8
 set laststatus=2 " always display a status line
 set display=lastline " show as much as possible of the last line
 set updatetime=300 " 300ms update
