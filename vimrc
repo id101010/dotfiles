@@ -10,15 +10,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Yggdroot/indentLine'
-  Plug 'rust-lang/rust.vim'
-  Plug 'scrooloose/syntastic'
+  Plug 'davidhalter/jedi-vim'
+"  Plug 'scrooloose/syntastic'
 "  Plug 'dense-analysis/ale'
 call plug#end()
 
 " Autocommands for special files "
 autocmd FileType make set noexpandtab " we want tabs in Makefiles
 autocmd BufWritePre * :%s/\s\+$//e " no trailing whitespace
-autocmd BufNewFile,BufRead *.md set ft=markdown tw=79 " markdown
+autocmd BufNewFile,BufRead *.md set ft=markdown tabstop=2 shiftwidth=2 softtabstop=2 showtabline=2 tw=79 expandtab " markdown
 autocmd BufNewFile,BufRead *.tex set ft=tex tw=79 " latex
 autocmd BufNewFile,BufRead *.py set ft=python tabstop=4 shiftwidth=4 softtabstop=4 showtabline=4 expandtab " Python PEP8
 
