@@ -6,13 +6,11 @@ filetype plugin indent on
 " Pluigin installation using vim-plug "
 call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
-  Plug 'morhetz/gruvbox'
+  Plug 'arcticicestudio/nord-vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Yggdroot/indentLine'
-  Plug 'davidhalter/jedi-vim'
-"  Plug 'scrooloose/syntastic'
-"  Plug 'dense-analysis/ale'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Autocommands for special files "
@@ -24,7 +22,8 @@ autocmd BufNewFile,BufRead *.py set ft=python tabstop=4 shiftwidth=4 softtabstop
 
 " Syntaxhighlighting, colorscheme, linenumbers "
 syntax on
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme nord
 
 " Tabstop, Shiftwith and replace tabs with spaces but not in makefiles "
 set tabstop=2 " number of spaces in a tab
@@ -53,6 +52,7 @@ set display=lastline " show as much as possible of the last line
 set updatetime=300 " 300ms update
 
 " Airline configs
+let g:airline_theme='nord'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
@@ -63,3 +63,17 @@ let g:indentLine_enabled = 1
 let g:indentLine_setColors = 2
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
+
+" Go configs
+set autowrite
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+" Status line types/signatures
+let g:go_auto_type_info = 1
