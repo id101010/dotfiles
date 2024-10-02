@@ -62,3 +62,7 @@ UPDATE_ZSH_DAYS=5
 
 # fix gpg for git
 export GPG_TTY=$(tty)
+
+# Plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
