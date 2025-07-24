@@ -1,0 +1,8 @@
+font-family = Source Code Pro
+font-size = 12
+cursor-style = underline
+theme = nord
+gtk-titlebar = false
+copy-on-select = clipboard
+app-notifications = no-clipboard-copy
+window-decoration = none

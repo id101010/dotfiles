@@ -13,9 +13,7 @@
 #############################################
 
 # font
-#set $font "pango:DejaVu Sans Mono for Powerline 10"
-#set $font "pango:Source Code Pro for Powerline 10"
-set $font "pango:IBM Plex Mono, FontAwesome 6 Free 11"
+set $font "pango:Source Code Pro, Font Awesome 6 Free 11"
 font $font
 
 # floating modifier
@@ -23,13 +21,11 @@ font $font
 # mod4 = Winkey (xmodmap to show)
 set $mod mod4
 floating_modifier $mod
-
 # focus follows mouse
 focus_follows_mouse no
-
 # no window decorations
-new_window pixel 1
-
+default_border pixel 2
+#default_floating_border pixel 0
 # gaps
 gaps inner 10
 gaps outer 10
@@ -42,15 +38,17 @@ gaps outer 10
 # "xev" and "showkeys" can be usefull to determine the keycodes.
 #
 
-# display brightness management (laptop)
-bindsym XF86MonBrightnessUp     exec --no-startup-id "xbacklight +10"
-bindsym XF86MonBrightnessDown   exec --no-startup-id "xbacklight -10"
+# display brightness management
+bindsym XF86MonBrightnessUp     exec "xbacklight +10"
+bindsym XF86MonBrightnessDown   exec "xbacklight -10"
 # webcam
-bindsym XF86WebCam              exec --no-startup-id "cheese"
+bindsym XF86WebCam              exec --no-startup-id /bin/cheese
 # screenshot
 bindsym $mod+F4                 exec --no-startup-id "gnome-screenshot -w"
 # start dmenu-launcher
-bindsym $mod+d                  exec --no-startup-id rofi -show drun -theme gruvbox-dark-soft -font "mono 10"
+bindsym $mod+d                  exec --no-startup-id rofi -show drun -font "mono 13"
+# start emoji selector
+bindsym $mod+o                  exec --no-startup-id rofi -modi emoji -show emoji -font "mono 13"
 # lock i3 with i3lock
 bindsym $mod+Shift+x            exec --no-startup-id i3lock -c 000000
 
@@ -59,65 +57,45 @@ bindsym $mod+Shift+x            exec --no-startup-id i3lock -c 000000
 #############################################
 
 # start terminal
+bindsym $mod+Return             exec --no-startup-id ghostty
 #bindsym $mod+Return             exec --no-startup-id kitty
-bindsym $mod+Return             exec --no-startup-id alacritty
-
+#bindsym $mod+Return             exec --no-startup-id alacritty
 # kill focused window
 bindsym $mod+Shift+q            kill
-
 # change focus vim Style
 bindsym $mod+h                  focus left
 bindsym $mod+l                  focus right
 bindsym $mod+k                  focus up
 bindsym $mod+j                  focus down
-
 # move focused window vim Style
 bindsym $mod+Shift+h            move left
 bindsym $mod+Shift+l            move right
 bindsym $mod+Shift+k            move up
 bindsym $mod+Shift+j            move down
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left         move left
-bindsym $mod+Shift+Down         move down
-bindsym $mod+Shift+Up           move up
-bindsym $mod+Shift+Right        move right
-
 # split in horizontal orientation
 bindsym $mod+v                  split h
-
 # split in vertical orientation
 bindsym $mod+c                  split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f                  fullscreen
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s                  layout stacking
 bindsym $mod+w                  layout tabbed
 bindsym $mod+e                  layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space        floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space              focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a                  focus parent
-
 # reload the configuration file
 bindsym $mod+Shift+c            reload
-
 # restart i3 inplace
 bindsym $mod+Shift+r            restart
-
 # exit i3
 bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
-
 # enter the resize mode
 bindsym $mod+r                  mode "resize"
-
 # scratchpad
 bindsym $mod+y                  scratchpad show
 bindsym $mod+x                  move scratchpad
@@ -166,7 +144,6 @@ mode "resize" {
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
     bindsym l resize grow width 10 px or 10 ppt
-
     # back to normal
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -176,48 +153,33 @@ mode "resize" {
 #                 Colors                    #
 #############################################
 
-# primary gruvbox colorscheme
-set $bg       #282828
-set $bg0      #282828
-set $bg1      #3c3836
-set $bg2      #504945
-set $bg3      #665c54
-set $bg4      #7c6f64
-set $fg       #ebdbb2
-set $red      #cc241d
-set $green    #98971a
-set $yellow   #d79921
-set $blue     #458588
-set $purple   #b16286
-set $aqua     #689d68
-set $grey     #a89984
-set $darkgrey #1d2021
-set $white    #000000
-
-# workspace config
-# class                  border    backgr    text   indicator child_border
-client.focused           $bg2      $bg2      $bg    $bg4      $bg2
-client.focused_inactive  $darkgrey $darkgrey $bg2   $bg       $darkgrey
-client.unfocused         $darkgrey $darkgrey $bg2   $bg       $darkgrey
-client.urgent            $red      $bg2      $red   $bg       $red
+# class                 border  backgr. text    indicator
+client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+client.unfocused        #2e3440 #1f222d #888888 #1f222d
+client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+client.placeholder      #2e3440 #1f222d #888888 #1f222d
+client.urgent           #900000 #900000 #ffffff #900000
+client.background       #242424
 
 #############################################
 #                 i3-bar                    #
 #############################################
 
 bar {
-    font $font
-    position top
-    status_command i3status-rs ~/.config/i3status-rust/config.toml
-    colors {
-        background #222439 # -> BG of Wallpaper for fake transparency
-        statusline $yellow
-        # class              border     backgr    text
-        focused_workspace    $darkgrey  $grey     $darkgrey
-        inactive_workspace   $darkgrey  $darkgrey $grey
-        active_workspace     $darkgrey  $darkgrey $grey
-        urgent_workspace     $red       $darkgrey $red
-    }
+  font $font
+  position top
+  status_command i3status-rs
+  colors {
+    separator  #1f222d
+    background #1f222d
+    statusline #81a1c1
+    #                  border background text
+    focused_workspace  #1f222d #1f222d #81a1c1
+    active_workspace   #1f222d #252936 #5e81ac
+    inactive_workspace #1f222d #1f222d #4c566a
+    urgent_workspace   #1f222d #1f222d #ee829f
+    binding_mode       #1f222d #81a1c1 #2e3440
+  }
 }
 
 #############################################
@@ -227,10 +189,26 @@ bar {
 # always floating
 for_window [class="Gedit"]          floating enable
 for_window [class="Teamspeak3"]     floating enable
+for_window [class="Origin"]         floating enable
 
 # 0px Border
 for_window [class="chrome"]         border none
 for_window [class="firefox"]        border none
+
+# Steam optimization
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# bugfix
+for_window [all] border pixel 2
 
 #############################################
 #            auto start with i3             #
@@ -238,15 +216,16 @@ for_window [class="firefox"]        border none
 
 # composite manager
 exec --no-startup-id picom -b --config ~/.config/picom.conf
+#exec --no-startup-id fastcompmgr -o 0.4 -r 12 -c -C
 # less eye pain
-exec --no-startup-id redshift -l 46.95:7.45 -t 6500:3000
-# start notification daemon
-exec --no-startup-id dunst -config ~/.config/dunstrc
+#exec --no-startup-id redshift -l 46.95:7.45 -t 7500:3500
 # no beep!
 exec --no-startup-id xset b off
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/.config/wallpapers/gentoo.jpg
+exec --no-startup-id feh --bg-fill /home/aaron/.config/wallpapers/tower-nord.png
 # syncthing
 exec --no-startup-id syncthing --no-browser
-# use lockscreen as screensaver (needs xss-lock installed)
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
+# dunst
+exec --no-startup-id dunst ~/.config/dunst/dunstrc
+# adjust refresh rate
+exec --no-startup-id xset r rate 300 50
